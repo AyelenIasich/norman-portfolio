@@ -1,60 +1,75 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import {
+  Target, Unlock, ShieldAlert, Terminal, ScanLine,
+  Bug, Zap, Activity, Cpu, Network, Globe, Shield,
+  type LucideIcon,
+} from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
-const ICONS: Record<string, string> = {
-  'Penetration Testing':       '🎯',
-  'Ethical Hacking':           '🔓',
-  'Vulnerability Analysis':    '🔍',
-  'Análisis de Vulnerabilidades': '🔍',
-  'Kali Linux':                '🐉',
-  'Nmap':                      '📡',
-  'Burp Suite':                '🕷️',
-  'Metasploit':                '💣',
-  'Wireshark':                 '🦈',
-  'Linux':                     '🐧',
-  'Networking':                '🌐',
-  'Redes':                     '🌐',
-  'Web Security':              '🔒',
-  'Seguridad Web':             '🔒',
+const ICONS: Record<string, LucideIcon> = {
+  'Penetration Testing':          Target,
+  'Ethical Hacking':              Unlock,
+  'Vulnerability Analysis':       ShieldAlert,
+  'Análisis de Vulnerabilidades': ShieldAlert,
+  'Kali Linux':                   Terminal,
+  'Nmap':                         ScanLine,
+  'Burp Suite':                   Bug,
+  'Metasploit':                   Zap,
+  'Wireshark':                    Activity,
+  'Linux':                        Cpu,
+  'Networking':                   Network,
+  'Redes':                        Network,
+  'Web Security':                 Globe,
+  'Seguridad Web':                Globe,
 }
 
-function SkillBar({
+function SkillCard({
   name,
-  level,
-  animate,
+  visible,
   delay,
 }: {
   name: string
-  level: number
-  animate: boolean
+  visible: boolean
   delay: number
 }) {
-  const [width, setWidth] = useState(0)
-
-  useEffect(() => {
-    if (!animate) return
-    const t = setTimeout(() => setWidth(level), delay)
-    return () => clearTimeout(t)
-  }, [animate, level, delay])
+  const Icon = ICONS[name] ?? Shield
 
   return (
-    <div className="mb-4 last:mb-0">
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="text-snow text-sm font-medium flex items-center gap-2">
-          <span className="text-base leading-none">{ICONS[name] ?? '⚡'}</span>
-          {name}
-        </span>
-        <span className="text-blue text-xs font-bold tabular-nums">{level}%</span>
-      </div>
-      <div className="h-1.5 bg-wire rounded-full overflow-hidden">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-blue to-blue/60
-                     transition-[width] duration-1000 ease-out"
-          style={{ width: `${width}%` }}
+    <div
+      className="relative bg-dark border border-wire rounded-2xl p-4
+                 flex flex-col items-center gap-3 cursor-default group
+                 hover:border-blue transition-all duration-300
+                 hover:shadow-[0_0_20px_rgba(0,180,255,0.15)]"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.88)',
+        transition: `opacity 0.45s ease ${delay}ms, transform 0.45s ease ${delay}ms`,
+      }}
+    >
+      {/* Top-edge glow line on hover */}
+      <span
+        className="absolute inset-x-6 top-0 h-px rounded-full bg-blue
+                   opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      />
+
+      {/* Icon container */}
+      <div
+        className="w-10 h-10 rounded-xl bg-wire/60 flex items-center justify-center
+                   group-hover:bg-blue/10 transition-colors duration-300"
+      >
+        <Icon
+          className="w-5 h-5 text-muted group-hover:text-blue transition-colors duration-300"
+          strokeWidth={1.5}
         />
       </div>
+
+      {/* Name */}
+      <span className="text-muted text-xs font-medium text-center leading-snug
+                       group-hover:text-snow transition-colors duration-300">
+        {name}
+      </span>
     </div>
   )
 }
@@ -69,54 +84,62 @@ export default function Skills() {
     if (!el) return
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect() } },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     )
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
 
   return (
-    <section
-      id="skills"
-      ref={ref}
-      className="py-24 px-4 bg-surface"
-    >
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" ref={ref} className="py-24 px-4 bg-surface">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <div
-          className={`transition-all duration-700 ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(16px)',
+            transition: 'opacity 0.7s ease, transform 0.7s ease',
+          }}
         >
           <h2 className="font-grotesk text-3xl sm:text-4xl font-bold text-snow text-center mb-1">
             {t.skills.title}
           </h2>
           <p className="text-muted text-center mb-14">{t.skills.subtitle}</p>
+        </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {t.skills.categories.map((cat, catIdx) => (
+        {/* Categories */}
+        <div className="flex flex-col gap-12">
+          {t.skills.categories.map((cat, catIdx) => (
+            <div key={catIdx}>
+              {/* Category label with divider */}
               <div
-                key={catIdx}
-                className="bg-dark border border-wire rounded-xl p-6
-                           hover:border-blue/50 transition-colors duration-300"
+                className="flex items-center gap-3 mb-5"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? 'translateX(0)' : 'translateX(-16px)',
+                  transition: `opacity 0.5s ease ${catIdx * 80}ms, transform 0.5s ease ${catIdx * 80}ms`,
+                }}
               >
-                {/* Category header */}
-                <h3 className="font-grotesk font-bold text-blue mb-5 flex items-center gap-2 text-sm uppercase tracking-widest">
-                  <span className="w-2 h-2 rounded-full bg-blue inline-block" />
+                <span className="w-1.5 h-1.5 rounded-full bg-blue flex-shrink-0" />
+                <h3 className="font-grotesk font-bold text-blue text-xs uppercase tracking-[0.15em] whitespace-nowrap">
                   {cat.name}
                 </h3>
+                <span className="flex-1 h-px bg-wire" />
+              </div>
 
-                {cat.skills.map((skill, skillIdx) => (
-                  <SkillBar
-                    key={skillIdx}
+              {/* Skill cards grid */}
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                {cat.skills.map((skill, i) => (
+                  <SkillCard
+                    key={i}
                     name={skill.name}
-                    level={skill.level}
-                    animate={visible}
-                    delay={catIdx * 80 + skillIdx * 120}
+                    visible={visible}
+                    delay={catIdx * 100 + i * 70}
                   />
                 ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

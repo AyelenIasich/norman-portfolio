@@ -87,7 +87,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-muted bounce-y">
+      <div className="absolute bottom-8 inset-x-0 flex flex-col items-center gap-1 text-muted bounce-y">
         <span className="font-mono text-xs tracking-widest opacity-60">{t.hero.scroll}</span>
         <ChevronDown className="w-5 h-5" />
       </div>
