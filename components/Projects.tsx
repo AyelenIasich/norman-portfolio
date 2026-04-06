@@ -15,7 +15,7 @@ export default function Projects() {
     if (!el) return
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect() } },
-      { threshold: 0.08 }
+      { threshold: 0.15 }
     )
     obs.observe(el)
     return () => obs.disconnect()
@@ -44,7 +44,12 @@ export default function Projects() {
               return (
                 <article
                   key={i}
-                  className={`bg-surface rounded-xl border transition-all duration-300 p-6 flex flex-col ${
+                  style={{
+                    opacity: visible ? 1 : 0,
+                    transform: visible ? 'translateY(0)' : 'translateY(20px)',
+                    transition: `opacity 0.65s ease ${i * 130}ms, transform 0.65s ease ${i * 130}ms`,
+                  }}
+                  className={`bg-surface rounded-xl border transition-colors duration-300 p-6 flex flex-col ${
                     isTeal
                       ? 'border-wire hover:border-blue hover:shadow-[0_0_24px_rgba(0,180,255,0.14)]'
                       : 'border-wire hover:border-gold hover:shadow-[0_0_24px_rgba(251,191,36,0.14)]'

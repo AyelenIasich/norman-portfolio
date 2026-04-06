@@ -44,8 +44,8 @@ function SkillCard({
                  hover:shadow-[0_0_20px_rgba(0,180,255,0.15)]"
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.88)',
-        transition: `opacity 0.45s ease ${delay}ms, transform 0.45s ease ${delay}ms`,
+        transform: visible ? 'translateY(0) scale(1)' : 'translateY(16px) scale(0.95)',
+        transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
       }}
     >
       {/* Top-edge glow line on hover */}
@@ -84,7 +84,7 @@ export default function Skills() {
     if (!el) return
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect() } },
-      { threshold: 0.08 }
+      { threshold: 0.15 }
     )
     obs.observe(el)
     return () => obs.disconnect()
@@ -117,7 +117,7 @@ export default function Skills() {
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateX(0)' : 'translateX(-16px)',
-                  transition: `opacity 0.5s ease ${catIdx * 80}ms, transform 0.5s ease ${catIdx * 80}ms`,
+                  transition: `opacity 0.65s ease ${catIdx * 120}ms, transform 0.65s ease ${catIdx * 120}ms`,
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-blue flex-shrink-0" />
@@ -134,7 +134,7 @@ export default function Skills() {
                     key={i}
                     name={skill.name}
                     visible={visible}
-                    delay={catIdx * 100 + i * 70}
+                    delay={catIdx * 150 + i * 100}
                   />
                 ))}
               </div>

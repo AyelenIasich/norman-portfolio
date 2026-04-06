@@ -22,7 +22,7 @@ export default function Certifications() {
     if (!el) return
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect() } },
-      { threshold: 0.08 }
+      { threshold: 0.15 }
     )
     obs.observe(el)
     return () => obs.disconnect()
@@ -53,7 +53,7 @@ export default function Certifications() {
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateX(0)' : 'translateX(-28px)',
-                    transition: `opacity 0.55s ease ${i * 90}ms, transform 0.55s ease ${i * 90}ms`,
+                    transition: `opacity 0.65s ease ${i * 120}ms, transform 0.65s ease ${i * 120}ms`,
                   }}
                 >
                   {/* Institution icon */}
@@ -68,7 +68,7 @@ export default function Certifications() {
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                    <div className="flex items-center justify-between mb-0.5">
                       <span className="font-grotesk font-bold text-blue text-sm">
                         {item.institution}
                       </span>
@@ -82,16 +82,10 @@ export default function Certifications() {
                         {inProgress ? t.certifications.inProgress : t.certifications.completed}
                       </span>
                     </div>
-                    <p className="text-snow text-sm font-medium leading-snug">{item.title}</p>
-                    <p className="text-muted text-xs mt-0.5">{item.period}</p>
+                    <p className="text-snow text-sm font-medium leading-snug pt-2">{item.title}</p>
+                    <p className="text-muted text-xs mt-1">{item.period}</p>
                   </div>
 
-                  {/* Status icon */}
-                  {inProgress ? (
-                    <GraduationCap className="w-5 h-5 text-gold flex-shrink-0" />
-                  ) : (
-                    <Award className="w-5 h-5 text-green flex-shrink-0" />
-                  )}
                 </div>
               )
             })}

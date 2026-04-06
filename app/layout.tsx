@@ -25,6 +25,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var ua=navigator.userAgent;if(/android/i.test(ua)){document.documentElement.style.fontSize='14px';}else{document.documentElement.style.fontSize='16px';}})();`,
+          }}
+        />
+      </head>
       <body className="bg-dark text-snow font-inter antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
