@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-dark to-transparent pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-16">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center">
         {/* Terminal prefix */}
         <p className="font-mono text-blue text-sm mb-5 opacity-70 tracking-widest">
           root@kali:~# whoami
@@ -66,7 +66,7 @@ export default function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-row gap-4 justify-center">
           <button
             onClick={() => scrollTo('projects')}
             className="px-8 py-3 bg-blue text-dark font-grotesk font-bold rounded-lg
