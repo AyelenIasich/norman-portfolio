@@ -15,7 +15,7 @@ const DEFAULT_INST = { Icon: FileText, cls: 'text-muted' }
 export default function Certifications() {
   const { t } = useLanguage()
   const ref = useRef<HTMLElement>(null)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false)   
 
   useEffect(() => {
     const el = ref.current
