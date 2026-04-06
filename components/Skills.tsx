@@ -46,11 +46,11 @@ function SkillBar({
           <span className="text-base leading-none">{ICONS[name] ?? '⚡'}</span>
           {name}
         </span>
-        <span className="text-teal text-xs font-bold tabular-nums">{level}%</span>
+        <span className="text-blue text-xs font-bold tabular-nums">{level}%</span>
       </div>
       <div className="h-1.5 bg-wire rounded-full overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-teal to-teal/60
+          className="h-full rounded-full bg-gradient-to-r from-blue to-blue/60
                      transition-[width] duration-1000 ease-out"
           style={{ width: `${width}%` }}
         />
@@ -97,11 +97,11 @@ export default function Skills() {
               <div
                 key={catIdx}
                 className="bg-dark border border-wire rounded-xl p-6
-                           hover:border-teal/50 transition-colors duration-300"
+                           hover:border-blue/50 transition-colors duration-300"
               >
                 {/* Category header */}
-                <h3 className="font-grotesk font-bold text-teal mb-5 flex items-center gap-2 text-sm uppercase tracking-widest">
-                  <span className="w-2 h-2 rounded-full bg-teal inline-block" />
+                <h3 className="font-grotesk font-bold text-blue mb-5 flex items-center gap-2 text-sm uppercase tracking-widest">
+                  <span className="w-2 h-2 rounded-full bg-blue inline-block" />
                   {cat.name}
                 </h3>
 

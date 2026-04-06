@@ -10,20 +10,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // dark = #0a1a1a  → bg-dark / text-dark
-        dark: '#0a1a1a',
-        // surface = #0f2323  → bg-surface
-        surface: '#0f2323',
-        // teal = #14b8a6  → text-teal / bg-teal / border-teal
-        teal: '#14b8a6',
-        // gold = #fbbf24  → text-gold / border-gold
+        // dark = #08131f  → bg-dark / text-dark
+        dark: '#08131f',
+        // surface = #0d1e2d  → bg-surface (cards)
+        surface: '#0d1e2d',
+        // blue = #00b4ff  → electric blue main accent
+        blue: '#00b4ff',
+        // green = #22c55e  → green for completed/success details
+        green: '#22c55e',
+        // gold = #fbbf24  → secondary accent
         gold: '#fbbf24',
-        // snow = #f1f5f9  → text-snow (primary text)
+        // snow = #f1f5f9  → primary text
         snow: '#f1f5f9',
-        // muted = #94a3b8  → text-muted (secondary text)
+        // muted = #94a3b8  → secondary text
         muted: '#94a3b8',
-        // wire = #1e3a3a  → border-wire / bg-wire
-        wire: '#1e3a3a',
+        // wire = #192d42  → borders
+        wire: '#192d42',
       },
       fontFamily: {
         grotesk: ['var(--font-space-grotesk)', 'sans-serif'],

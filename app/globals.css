@@ -3,64 +3,55 @@
 @tailwind utilities;
 
 :root {
-  --c-dark: #0a1a1a;
-  --c-surface: #0f2323;
-  --c-teal: #14b8a6;
-  --c-gold: #fbbf24;
-  --c-snow: #f1f5f9;
-  --c-muted: #94a3b8;
-  --c-wire: #1e3a3a;
+  --c-dark:    #08131f;
+  --c-surface: #0d1e2d;
+  --c-blue:    #00b4ff;
+  --c-green:   #22c55e;
+  --c-gold:    #fbbf24;
+  --c-snow:    #f1f5f9;
+  --c-muted:   #94a3b8;
+  --c-wire:    #192d42;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0a1a1a;
+  background-color: #08131f;
   color: #f1f5f9;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0a1a1a; }
-::-webkit-scrollbar-thumb { background: #1e3a3a; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #14b8a6; }
+::-webkit-scrollbar-track { background: #08131f; }
+::-webkit-scrollbar-thumb { background: #192d42; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00b4ff; }
 
 /* Selection */
 ::selection {
-  background: rgba(20, 184, 166, 0.3);
+  background: rgba(0, 180, 255, 0.25);
   color: #f1f5f9;
 }
 
 /* ─── Glitch animation on hero title ─────────────────────────────── */
 @keyframes glitch {
   0%,   87%, 100% { transform: none;                               text-shadow: none; }
-  88%             { transform: skewX(-4deg);                       text-shadow:  3px 0 #14b8a6, -3px 0 #fbbf24; }
-  89%             { transform: skewX( 4deg) translateX(3px);       text-shadow: -3px 0 #14b8a6,  3px 0 #fbbf24; }
-  90%             { transform: translateX(-3px);                   text-shadow:  2px 2px #14b8a6; }
+  88%             { transform: skewX(-4deg);                       text-shadow:  3px 0 #00b4ff, -3px 0 #fbbf24; }
+  89%             { transform: skewX( 4deg) translateX(3px);       text-shadow: -3px 0 #00b4ff,  3px 0 #fbbf24; }
+  90%             { transform: translateX(-3px);                   text-shadow:  2px 2px #00b4ff; }
   91%             { transform: none;                               text-shadow: none; }
   92%             { transform: skewX(-1deg) translateY(1px);       text-shadow: -1px -1px #fbbf24; }
   93%             { transform: none;                               text-shadow: none; }
 }
-
-.glitch {
-  animation: glitch 5s infinite;
-}
+.glitch { animation: glitch 5s infinite; }
 
 /* ─── Cursor blink ────────────────────────────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
-.cursor {
-  display: inline-block;
-  animation: blink 0.8s step-end infinite;
-}
+.cursor { display: inline-block; animation: blink 0.8s step-end infinite; }
 
 /* ─── Fade-in utility (triggered by JS adding .visible) ──────────── */
 .fade-in {
@@ -68,10 +59,7 @@ body {
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* ─── Slide-in from left (certifications) ────────────────────────── */
 .slide-in {
@@ -79,25 +67,18 @@ body {
   transform: translateX(-32px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.slide-in.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+.slide-in.visible { opacity: 1; transform: translateX(0); }
 
 /* ─── Scroll indicator bounce ────────────────────────────────────── */
 @keyframes bounce-y {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(8px); }
 }
-.bounce-y {
-  animation: bounce-y 1.6s ease-in-out infinite;
-}
+.bounce-y { animation: bounce-y 1.6s ease-in-out infinite; }
 
 /* ─── Glow ring pulse on avatar ──────────────────────────────────── */
 @keyframes ring-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
-  50%       { box-shadow: 0 0 0 12px rgba(20, 184, 166, 0); }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(0, 180, 255, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(0, 180, 255, 0);   }
 }
-.ring-pulse {
-  animation: ring-pulse 2.5s ease-in-out infinite;
-}
+.ring-pulse { animation: ring-pulse 2.5s ease-in-out infinite; }

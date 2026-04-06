@@ -47,7 +47,7 @@ export default function Certifications() {
                   key={i}
                   className="bg-dark border border-wire rounded-xl px-5 py-4
                              flex items-center gap-4
-                             hover:border-teal/50 transition-all duration-300"
+                             hover:border-blue/50 transition-all duration-300"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateX(0)' : 'translateX(-28px)',
@@ -62,14 +62,14 @@ export default function Certifications() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-0.5">
-                      <span className="font-grotesk font-bold text-teal text-sm">
+                      <span className="font-grotesk font-bold text-blue text-sm">
                         {item.institution}
                       </span>
                       <span
                         className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
                           inProgress
                             ? 'bg-gold/10 text-gold border border-gold/25'
-                            : 'bg-teal/10 text-teal border border-teal/25'
+                            : 'bg-green/10 text-green border border-green/25'
                         }`}
                       >
                         {inProgress ? t.certifications.inProgress : t.certifications.completed}
@@ -83,7 +83,7 @@ export default function Certifications() {
                   {inProgress ? (
                     <GraduationCap className="w-5 h-5 text-gold flex-shrink-0" />
                   ) : (
-                    <Award className="w-5 h-5 text-teal flex-shrink-0" />
+                    <Award className="w-5 h-5 text-green flex-shrink-0" />
                   )}
                 </div>
               )

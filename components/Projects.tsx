@@ -46,7 +46,7 @@ export default function Projects() {
                   key={i}
                   className={`bg-surface rounded-xl border transition-all duration-300 p-6 flex flex-col ${
                     isTeal
-                      ? 'border-wire hover:border-teal hover:shadow-[0_0_24px_rgba(20,184,166,0.14)]'
+                      ? 'border-wire hover:border-blue hover:shadow-[0_0_24px_rgba(0,180,255,0.14)]'
                       : 'border-wire hover:border-gold hover:shadow-[0_0_24px_rgba(251,191,36,0.14)]'
                   }`}
                 >
@@ -54,7 +54,7 @@ export default function Projects() {
                   <span
                     className={`self-start text-xs font-bold px-2.5 py-1 rounded mb-3 ${
                       isTeal
-                        ? 'bg-teal/10 text-teal border border-teal/25'
+                        ? 'bg-blue/10 text-blue border border-blue/25'
                         : 'bg-gold/10  text-gold  border border-gold/25'
                     }`}
                   >
@@ -77,7 +77,7 @@ export default function Projects() {
                   >
                     <p
                       className={`text-muted text-sm leading-relaxed border-l-2 pl-3 ${
-                        isTeal ? 'border-teal' : 'border-gold'
+                        isTeal ? 'border-blue' : 'border-gold'
                       }`}
                     >
                       {project.description}
@@ -101,7 +101,7 @@ export default function Projects() {
                     onClick={() => toggle(i)}
                     className={`flex items-center gap-1 text-sm font-semibold self-start transition-colors ${
                       isTeal
-                        ? 'text-teal hover:text-teal/70'
+                        ? 'text-blue hover:text-blue/70'
                         : 'text-gold hover:text-gold/70'
                     }`}
                   >

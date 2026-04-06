@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 font-grotesk font-bold text-snow mb-3">
-              <Shield className="w-5 h-5 text-teal" />
+              <Shield className="w-5 h-5 text-blue" />
               Norman Iasich
             </div>
             <p className="text-muted text-sm italic leading-relaxed">
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li key={l.id}>
                   <button
                     onClick={() => scroll(l.id)}
-                    className="text-muted hover:text-teal transition-colors text-sm"
+                    className="text-muted hover:text-blue transition-colors text-sm"
                   >
                     {l.label}
                   </button>
@@ -70,7 +70,7 @@ export default function Footer() {
                     href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted hover:text-teal transition-colors text-sm"
+                    className="text-muted hover:text-blue transition-colors text-sm"
                   >
                     {l.label}
                   </a>

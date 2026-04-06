@@ -18,15 +18,15 @@ function ContactCard({ icon: Icon, label, href, desc }: SocialCard) {
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
       className="bg-surface border border-wire rounded-xl p-5 flex flex-col items-center gap-3
-                 hover:border-teal hover:shadow-[0_0_24px_rgba(20,184,166,0.18)]
+                 hover:border-blue hover:shadow-[0_0_24px_rgba(0,180,255,0.18)]
                  transition-all duration-300 group"
     >
       <Icon
-        className="w-7 h-7 text-muted group-hover:text-teal transition-colors"
+        className="w-7 h-7 text-muted group-hover:text-blue transition-colors"
         strokeWidth={1.5}
       />
       <div className="text-center">
-        <p className="font-grotesk font-semibold text-snow text-sm group-hover:text-teal transition-colors">
+        <p className="font-grotesk font-semibold text-snow text-sm group-hover:text-blue transition-colors">
           {label}
         </p>
         <p className="text-muted text-xs mt-0.5">{desc}</p>
@@ -93,8 +93,8 @@ export default function Contact() {
     {
       icon: Mail,
       label: t.contact.social.email,
-      href: 'mailto:norman.iasich@gmail.com',
-      desc: 'norman.iasich@gmail.com',
+      href: 'mailto:normaniasich@gmail.com',
+      desc: 'normaniasich@gmail.com',
     },
   ]
 
@@ -126,11 +126,11 @@ export default function Contact() {
             <div>
               {sent ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                  <CheckCircle className="w-14 h-14 text-teal" strokeWidth={1.5} />
+                  <CheckCircle className="w-14 h-14 text-blue" strokeWidth={1.5} />
                   <p className="text-snow font-medium">{t.contact.form.success}</p>
                   <button
                     onClick={() => setSent(false)}
-                    className="text-teal text-sm hover:underline"
+                    className="text-blue text-sm hover:underline"
                   >
                     {t.contact.form.sendAnother}
                   </button>
@@ -148,7 +148,7 @@ export default function Contact() {
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder={t.contact.form.namePlaceholder}
                       className={`w-full bg-surface border rounded-lg px-4 py-3 text-snow text-sm
-                                  placeholder-muted/40 focus:outline-none focus:border-teal transition-colors ${
+                                  placeholder-muted/40 focus:outline-none focus:border-blue transition-colors ${
                         errors.name ? 'border-red-500' : 'border-wire'
                       }`}
                     />
@@ -168,7 +168,7 @@ export default function Contact() {
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder={t.contact.form.emailPlaceholder}
                       className={`w-full bg-surface border rounded-lg px-4 py-3 text-snow text-sm
-                                  placeholder-muted/40 focus:outline-none focus:border-teal transition-colors ${
+                                  placeholder-muted/40 focus:outline-none focus:border-blue transition-colors ${
                         errors.email ? 'border-red-500' : 'border-wire'
                       }`}
                     />
@@ -188,7 +188,7 @@ export default function Contact() {
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder={t.contact.form.messagePlaceholder}
                       className={`w-full bg-surface border rounded-lg px-4 py-3 text-snow text-sm
-                                  placeholder-muted/40 focus:outline-none focus:border-teal transition-colors
+                                  placeholder-muted/40 focus:outline-none focus:border-blue transition-colors
                                   resize-none ${errors.message ? 'border-red-500' : 'border-wire'}`}
                     />
                     {errors.message && (
@@ -198,9 +198,9 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-teal text-dark font-grotesk font-bold rounded-lg
-                               hover:bg-teal/90 transition-all active:scale-95
-                               hover:shadow-[0_0_24px_rgba(20,184,166,0.4)]"
+                    className="w-full py-3 bg-blue text-dark font-grotesk font-bold rounded-lg
+                               hover:bg-blue/90 transition-all active:scale-95
+                               hover:shadow-[0_0_24px_rgba(0,180,255,0.4)]"
                   >
                     {t.contact.form.submit}
                   </button>

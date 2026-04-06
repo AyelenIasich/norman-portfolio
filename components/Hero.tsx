@@ -31,7 +31,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(20,184,166,0.07) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,180,255,0.07) 0%, transparent 70%)',
         }}
       />
 
@@ -41,7 +41,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-16">
         {/* Terminal prefix */}
-        <p className="font-mono text-teal text-sm mb-5 opacity-70 tracking-widest">
+        <p className="font-mono text-blue text-sm mb-5 opacity-70 tracking-widest">
           root@kali:~# whoami
         </p>
 
@@ -53,7 +53,7 @@ export default function Hero() {
 
         {/* Typing effect */}
         <div className="h-10 sm:h-12 flex items-center justify-center mb-5">
-          <span className="font-grotesk font-semibold text-teal
+          <span className="font-grotesk font-semibold text-blue
                            text-xl sm:text-2xl md:text-3xl">
             {displayText}
             <span className="cursor text-gold ml-0.5">|</span>
@@ -69,17 +69,17 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={() => scrollTo('projects')}
-            className="px-8 py-3 bg-teal text-dark font-grotesk font-bold rounded-lg
-                       hover:bg-teal/90 transition-all active:scale-95
-                       shadow-[0_0_0_rgba(20,184,166,0)] hover:shadow-[0_0_24px_rgba(20,184,166,0.45)]"
+            className="px-8 py-3 bg-blue text-dark font-grotesk font-bold rounded-lg
+                       hover:bg-blue/90 transition-all active:scale-95
+                       shadow-[0_0_0_rgba(0,180,255,0)] hover:shadow-[0_0_24px_rgba(0,180,255,0.45)]"
           >
             {t.hero.cta1}
           </button>
           <button
             onClick={() => scrollTo('contact')}
-            className="px-8 py-3 border border-teal text-teal font-grotesk font-bold rounded-lg
-                       hover:bg-teal/10 transition-all active:scale-95
-                       hover:shadow-[0_0_24px_rgba(20,184,166,0.2)]"
+            className="px-8 py-3 border border-blue text-blue font-grotesk font-bold rounded-lg
+                       hover:bg-blue/10 transition-all active:scale-95
+                       hover:shadow-[0_0_24px_rgba(0,180,255,0.2)]"
           >
             {t.hero.cta2}
           </button>

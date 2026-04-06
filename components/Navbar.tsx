@@ -48,9 +48,9 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => scrollTo('home')}
-          className="flex items-center gap-2 font-grotesk font-bold text-snow hover:text-teal transition-colors"
+          className="flex items-center gap-2 font-grotesk font-bold text-snow hover:text-blue transition-colors"
         >
-          <Shield className="w-5 h-5 text-teal" />
+          <Shield className="w-5 h-5 text-blue" />
           Norman Iasich
         </button>
 
@@ -60,7 +60,7 @@ export default function Navbar() {
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className="text-muted hover:text-teal transition-colors text-sm font-medium tracking-wide"
+              className="text-muted hover:text-blue transition-colors text-sm font-medium tracking-wide"
             >
               {l.label}
             </button>
@@ -69,8 +69,8 @@ export default function Navbar() {
           {/* Language toggle */}
           <button
             onClick={toggleLanguage}
-            className="ml-1 px-3 py-1 rounded border border-teal text-teal text-sm font-bold
-                       hover:bg-teal hover:text-dark transition-all"
+            className="ml-1 px-3 py-1 rounded border border-blue text-blue text-sm font-bold
+                       hover:bg-blue hover:text-dark transition-all"
           >
             {lang === 'en' ? 'ES' : 'EN'}
           </button>
@@ -80,13 +80,13 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-3">
           <button
             onClick={toggleLanguage}
-            className="px-2 py-1 rounded border border-teal text-teal text-xs font-bold"
+            className="px-2 py-1 rounded border border-blue text-blue text-xs font-bold"
           >
             {lang === 'en' ? 'ES' : 'EN'}
           </button>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="text-snow hover:text-teal transition-colors"
+            className="text-snow hover:text-blue transition-colors"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -105,7 +105,7 @@ export default function Navbar() {
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className="text-left py-3 text-muted hover:text-teal transition-colors border-b border-wire last:border-0 text-sm"
+              className="text-left py-3 text-muted hover:text-blue transition-colors border-b border-wire last:border-0 text-sm"
             >
               {l.label}
             </button>
