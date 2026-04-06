@@ -1,14 +1,16 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { GraduationCap, Award } from 'lucide-react'
+import { GraduationCap, Award, BookOpen, Terminal, Code2, FileText } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
-const INST_EMOJI: Record<string, string> = {
-  Teclab:    '🎓',
-  TryHackMe: '🔴',
-  Platzi:    '🟢',
+const INST_ICON: Record<string, { Icon: LucideIcon; cls: string }> = {
+  Teclab:    { Icon: BookOpen,  cls: 'text-blue' },
+  TryHackMe: { Icon: Terminal,  cls: 'text-gold' },
+  Platzi:    { Icon: Code2,     cls: 'text-green' },
 }
+const DEFAULT_INST = { Icon: FileText, cls: 'text-muted' }
 
 export default function Certifications() {
   const { t } = useLanguage()
@@ -54,10 +56,15 @@ export default function Certifications() {
                     transition: `opacity 0.55s ease ${i * 90}ms, transform 0.55s ease ${i * 90}ms`,
                   }}
                 >
-                  {/* Institution emoji */}
-                  <span className="text-2xl w-10 text-center flex-shrink-0" aria-hidden>
-                    {INST_EMOJI[item.institution] ?? '📋'}
-                  </span>
+                  {/* Institution icon */}
+                  {(() => {
+                    const { Icon, cls } = INST_ICON[item.institution] ?? DEFAULT_INST
+                    return (
+                      <div className="w-9 h-9 rounded-lg bg-wire/30 flex items-center justify-center flex-shrink-0" aria-hidden>
+                        <Icon className={`w-5 h-5 ${cls}`} />
+                      </div>
+                    )
+                  })()}
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">

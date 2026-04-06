@@ -81,12 +81,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-wire pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        {/* <div className="border-t border-wire pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-muted text-sm">
             &copy; {year} Norman Iasich. {t.footer.rights}
           </p>
           <p className="text-muted text-sm">{t.footer.built}</p>
-        </div>
+        </div> */}
       </div>
     </footer>
   )

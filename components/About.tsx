@@ -39,7 +39,7 @@ function HackerAvatar() {
 
       {/* Person silhouette above monitor */}
       <circle cx="100" cy="48" r="18" fill="#192d42" stroke="#00b4ff" strokeWidth="1.5" />
-      <text x="91" y="54" fontFamily="monospace" fontSize="16" fontWeight="bold" fill="#00b4ff">N</text>
+      <text x="100" y="48" fontFamily="monospace" fontSize="16" fontWeight="bold" fill="#00b4ff" textAnchor="middle" dominantBaseline="central">N</text>
     </svg>
   )
 }
