@@ -82,13 +82,13 @@ export default function Contact() {
       icon: Github,
       label: t.contact.social.github,
       href: 'https://github.com/normania',
-      desc: '@normania',
+      desc: 'normania',
     },
     {
       icon: Crosshair,
       label: t.contact.social.tryhackme,
-      href: 'https://tryhackme.com/p/normania',
-      desc: 'p/normania',
+      href: 'https://tryhackme.com/p/baton.',
+      desc: 'p/baton.',
     },
     {
       icon: Mail,
