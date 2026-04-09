@@ -37,7 +37,7 @@ module.exports = {
       },
       fontFamily: {
         grotesk: ['var(--font-space-grotesk)', 'sans-serif'],
-        inter: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
       },
       animation: {
         'glitch-red': 'glitch-red 5s infinite',

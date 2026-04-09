@@ -25,7 +25,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-surface border-t border-wire py-12 px-4">
+    <footer className="border-t border-wire py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           {/* Brand */}

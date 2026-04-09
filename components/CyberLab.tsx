@@ -81,7 +81,7 @@ export default function CyberLab() {
   }
 
   return (
-    <section id="cyberlab" ref={ref} className="py-24 px-4 bg-dark">
+    <section id="cyberlab" ref={ref} className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
         <div
           className={`transition-all duration-700 ${

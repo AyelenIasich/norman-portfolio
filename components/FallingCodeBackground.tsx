@@ -74,7 +74,7 @@ export default function FallingCodeBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-50"
+      className="fixed inset-0 w-full h-full opacity-50"
       aria-hidden="true"
     />
   )

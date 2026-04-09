@@ -4,7 +4,6 @@ import { useMemo } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { useTypingEffect } from '@/hooks/useTypingEffect'
-import FallingCodeBackground from './FallingCodeBackground'
 
 export default function Hero() {
   const { t, lang } = useLanguage()
@@ -22,25 +21,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%)' }}
     >
-      {/* Falling code canvas */}
-      <FallingCodeBackground />
-
-      {/* Scan lines CRT effect */}
-      <div className="scan-lines" />
-
-      {/* Red radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[3]"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,23,68,0.12) 0%, transparent 65%)',
-        }}
-      />
-
-      {/* Gradient fade to dark at bottom */}
-      <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-dark to-transparent pointer-events-none z-[4]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center">
@@ -71,7 +52,7 @@ export default function Hero() {
         </div>
 
         {/* Tagline */}
-        <p className="font-inter text-muted text-sm sm:text-base md:text-lg italic mb-10 max-w-xl">
+        <p className="font-mono text-muted text-sm sm:text-base md:text-lg italic mb-10 max-w-xl">
           &ldquo;{t.hero.tagline}&rdquo;
         </p>
 

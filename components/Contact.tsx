@@ -99,7 +99,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" ref={ref} className="py-24 px-4 bg-dark">
+    <section id="contact" ref={ref} className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
         <div
           className={`transition-all duration-700 ${

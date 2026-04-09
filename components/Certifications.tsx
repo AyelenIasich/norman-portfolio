@@ -29,7 +29,7 @@ export default function Certifications() {
   }, [])
 
   return (
-    <section id="certifications" ref={ref} className="py-24 px-4 bg-surface">
+    <section id="certifications" ref={ref} className="py-24 px-4">
       <div className="max-w-3xl mx-auto">
         <div
           className={`transition-all duration-700 ${

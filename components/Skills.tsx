@@ -91,7 +91,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <section id="skills" ref={ref} className="py-24 px-4 bg-surface">
+    <section id="skills" ref={ref} className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div
