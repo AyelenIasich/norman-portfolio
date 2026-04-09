@@ -44,18 +44,19 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <button
-          onClick={() => scrollTo('home')}
-          className="flex items-center gap-2 font-grotesk font-bold text-snow hover:text-red transition-colors"
-        >
-          <Shield className="w-5 h-5 text-red" />
-          Norman Iasich
-        </button>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
+        {/* Left spacer (desktop) */}
+        <div className="flex-1" />
 
-        {/* Desktop links */}
+        {/* Desktop links - centered */}
         <div className="hidden md:flex items-center gap-6">
+          <button
+            onClick={toggleLanguage}
+            className="px-3 py-1 rounded border border-cyan text-cyan text-sm font-bold
+                       hover:bg-cyan hover:text-dark transition-all"
+          >
+            {lang === 'en' ? 'ES' : 'EN'}
+          </button>
           {links.map((l) => (
             <button
               key={l.id}
@@ -65,32 +66,25 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-
-          {/* Language toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="ml-1 px-3 py-1 rounded border border-cyan text-cyan text-sm font-bold
-                       hover:bg-cyan hover:text-dark transition-all"
-          >
-            {lang === 'en' ? 'ES' : 'EN'}
-          </button>
         </div>
 
-        {/* Mobile: lang + hamburger */}
-        <div className="flex md:hidden items-center gap-3">
-          <button
-            onClick={toggleLanguage}
-            className="px-2 py-1 rounded border border-cyan text-cyan text-xs font-bold"
-          >
-            {lang === 'en' ? 'ES' : 'EN'}
-          </button>
-          <button
-            onClick={() => setOpen((o) => !o)}
-            className="text-snow hover:text-red transition-colors"
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+        {/* Right spacer / mobile controls */}
+        <div className="flex-1 flex justify-end">
+          <div className="flex md:hidden items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className="px-2 py-1 rounded border border-cyan text-cyan text-xs font-bold"
+            >
+              {lang === 'en' ? 'ES' : 'EN'}
+            </button>
+            <button
+              onClick={() => setOpen((o) => !o)}
+              className="text-snow hover:text-red transition-colors"
+              aria-label="Toggle menu"
+            >
+              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
