@@ -13,7 +13,7 @@ export default function Footer() {
   const quickLinks = [
     { label: t.nav.about,          id: 'about' },
     { label: t.nav.skills,         id: 'skills' },
-    { label: t.nav.projects,       id: 'projects' },
+    { label: t.nav.cyberlab,       id: 'cyberlab' },
     { label: t.nav.certifications, id: 'certifications' },
     { label: t.nav.contact,        id: 'contact' },
   ]
@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 font-grotesk font-bold text-snow mb-3">
-              <Shield className="w-5 h-5 text-blue" />
+              <Shield className="w-5 h-5 text-red" />
               Norman Iasich
             </div>
             <p className="text-muted text-sm italic leading-relaxed">
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li key={l.id}>
                   <button
                     onClick={() => scroll(l.id)}
-                    className="text-muted hover:text-blue transition-colors text-sm"
+                    className="text-muted hover:text-red transition-colors text-sm"
                   >
                     {l.label}
                   </button>
@@ -70,7 +70,7 @@ export default function Footer() {
                     href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted hover:text-blue transition-colors text-sm"
+                    className="text-muted hover:text-red transition-colors text-sm"
                   >
                     {l.label}
                   </a>
@@ -81,12 +81,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        {/* <div className="border-t border-wire pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-wire pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-muted text-sm">
-            &copy; {year} Norman Iasich. {t.footer.rights}
+            &copy; {year} Norman Iasich
           </p>
-          <p className="text-muted text-sm">{t.footer.built}</p>
-        </div> */}
+          <p className="font-mono text-xs text-red/50 tracking-wider">
+            &#x226B; SECURE BY DESIGN &#x226A;
+          </p>
+        </div>
       </div>
     </footer>
   )

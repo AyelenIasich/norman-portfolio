@@ -40,8 +40,8 @@ function SkillCard({
     <div
       className="relative bg-dark border border-wire rounded-2xl p-4
                  flex flex-col items-center gap-3 cursor-default group
-                 hover:border-blue transition-all duration-300
-                 hover:shadow-[0_0_20px_rgba(0,180,255,0.15)]"
+                 hover:border-red transition-all duration-300
+                 hover:shadow-[0_0_20px_rgba(255,23,68,0.15)]"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0) scale(1)' : 'translateY(16px) scale(0.95)',
@@ -50,17 +50,17 @@ function SkillCard({
     >
       {/* Top-edge glow line on hover */}
       <span
-        className="absolute inset-x-6 top-0 h-px rounded-full bg-blue
+        className="absolute inset-x-6 top-0 h-px rounded-full bg-red
                    opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       />
 
       {/* Icon container */}
       <div
         className="w-10 h-10 rounded-xl bg-wire/60 flex items-center justify-center
-                   group-hover:bg-blue/10 transition-colors duration-300"
+                   group-hover:bg-red/10 transition-colors duration-300"
       >
         <Icon
-          className="w-5 h-5 text-muted group-hover:text-blue transition-colors duration-300"
+          className="w-5 h-5 text-muted group-hover:text-red transition-colors duration-300"
           strokeWidth={1.5}
         />
       </div>
@@ -120,8 +120,8 @@ export default function Skills() {
                   transition: `opacity 0.65s ease ${catIdx * 120}ms, transform 0.65s ease ${catIdx * 120}ms`,
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-blue flex-shrink-0" />
-                <h3 className="font-grotesk font-bold text-blue text-xs uppercase tracking-[0.15em] whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-red flex-shrink-0" />
+                <h3 className="font-grotesk font-bold text-red text-xs uppercase tracking-[0.15em] whitespace-nowrap">
                   {cat.name}
                 </h3>
                 <span className="flex-1 h-px bg-wire" />

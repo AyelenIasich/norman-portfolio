@@ -3,14 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --c-dark:    #08131f;
-  --c-surface: #0d1e2d;
-  --c-blue:    #00b4ff;
-  --c-green:   #22c55e;
-  --c-gold:    #fbbf24;
-  --c-snow:    #f1f5f9;
-  --c-muted:   #94a3b8;
-  --c-wire:    #192d42;
+  --c-dark:       #0a0a0a;
+  --c-surface:    #141414;
+  --c-red:        #FF1744;
+  --c-red-dark:   #D32F2F;
+  --c-red-bright: #FF5252;
+  --c-cyan:       #00FFFF;
+  --c-matrix:     #00FF41;
+  --c-green:      #22c55e;
+  --c-gold:       #fbbf24;
+  --c-snow:       #f1f5f9;
+  --c-muted:      #808080;
+  --c-wire:       #2a2a2a;
 }
 
 * { box-sizing: border-box; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
@@ -18,44 +22,44 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-  background-color: #08131f;
-  color: #f1f5f9;
+  background-color: var(--c-dark);
+  color: var(--c-snow);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #08131f; }
-::-webkit-scrollbar-thumb { background: #192d42; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #00b4ff; }
+::-webkit-scrollbar-track { background: var(--c-dark); }
+::-webkit-scrollbar-thumb { background: var(--c-wire); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-red); }
 
 /* Selection */
 ::selection {
-  background: rgba(0, 180, 255, 0.25);
-  color: #f1f5f9;
+  background: rgba(255, 23, 68, 0.25);
+  color: var(--c-snow);
 }
 
-/* ─── Glitch animation on hero title ─────────────────────────────── */
+/* ─── Glitch animation (red + cyan) ─────────────────────────────── */
 @keyframes glitch {
-  0%,   87%, 100% { transform: none;                               text-shadow: none; }
-  88%             { transform: skewX(-4deg);                       text-shadow:  3px 0 #00b4ff, -3px 0 #fbbf24; }
-  89%             { transform: skewX( 4deg) translateX(3px);       text-shadow: -3px 0 #00b4ff,  3px 0 #fbbf24; }
-  90%             { transform: translateX(-3px);                   text-shadow:  2px 2px #00b4ff; }
-  91%             { transform: none;                               text-shadow: none; }
-  92%             { transform: skewX(-1deg) translateY(1px);       text-shadow: -1px -1px #fbbf24; }
-  93%             { transform: none;                               text-shadow: none; }
+  0%,   87%, 100% { transform: none; text-shadow: none; }
+  88%             { transform: skewX(-4deg); text-shadow: 3px 0 var(--c-red), -3px 0 var(--c-cyan), 0 0 20px rgba(255,23,68,0.8); }
+  89%             { transform: skewX(4deg) translateX(3px); text-shadow: -3px 0 var(--c-red), 3px 0 var(--c-cyan), 0 0 25px rgba(255,23,68,0.9); }
+  90%             { transform: translateX(-3px); text-shadow: 2px 2px var(--c-red), -2px -2px var(--c-cyan); }
+  91%             { transform: none; text-shadow: none; }
+  92%             { transform: skewX(-1deg) translateY(1px); text-shadow: -1px -1px var(--c-cyan); }
+  93%             { transform: none; text-shadow: none; }
 }
 .glitch { animation: glitch 5s infinite; }
 
-/* ─── Cursor blink ────────────────────────────────────────────────── */
+/* ─── Cursor blink (red) ─────────────────────────────────────────── */
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+  0%, 100% { opacity: 1; color: var(--c-red); text-shadow: 0 0 10px var(--c-red); }
+  50%       { opacity: 0.3; }
 }
 .cursor { display: inline-block; animation: blink 0.8s step-end infinite; }
 
-/* ─── Fade-in utility (triggered by JS adding .visible) ──────────── */
+/* ─── Fade-in utility ────────────────────────────────────────────── */
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
@@ -63,7 +67,7 @@ body {
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* ─── Slide-in from left (certifications) ────────────────────────── */
+/* ─── Slide-in from left ─────────────────────────────────────────── */
 .slide-in {
   opacity: 0;
   transform: translateX(-32px);
@@ -74,13 +78,56 @@ body {
 /* ─── Scroll indicator bounce ────────────────────────────────────── */
 @keyframes bounce-y {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(8px); }
+  50%       { transform: translateY(12px); }
 }
-.bounce-y { animation: bounce-y 1.6s ease-in-out infinite; }
+.bounce-y { animation: bounce-y 1.8s ease-in-out infinite; }
 
-/* ─── Glow ring pulse on avatar ──────────────────────────────────── */
+/* ─── Glow ring pulse (red) ──────────────────────────────────────── */
 @keyframes ring-pulse {
-  0%, 100% { box-shadow: 0 0 0 0   rgba(0, 180, 255, 0.4); }
-  50%       { box-shadow: 0 0 0 12px rgba(0, 180, 255, 0);   }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(255, 23, 68, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(255, 23, 68, 0);   }
 }
 .ring-pulse { animation: ring-pulse 2.5s ease-in-out infinite; }
+
+/* ─── Scan lines CRT effect ─────────────────────────────────────── */
+.scan-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 23, 68, 0.12) 0px,
+    rgba(255, 23, 68, 0.12) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  animation: scan-lines-move 8s linear infinite;
+  opacity: 0.06;
+}
+@keyframes scan-lines-move {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+/* ─── Red glow pulse for title ───────────────────────────────────── */
+@keyframes red-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 23, 68, 0.9));
+  }
+}
+.red-glow-pulse { animation: red-glow-pulse 3s ease-in-out infinite; }
+
+/* ─── Reduced motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -8,9 +8,9 @@ type Filter = 'all' | 'project' | 'lab' | 'ctf'
 
 const accentClasses = {
   blue: {
-    badge: 'bg-blue/10 text-blue border border-blue/25',
-    border: 'border-wire hover:border-blue hover:shadow-[0_0_24px_rgba(0,180,255,0.14)]',
-    btn: 'text-blue hover:text-blue/70',
+    badge: 'bg-cyan/10 text-cyan border border-cyan/25',
+    border: 'border-wire hover:border-cyan hover:shadow-[0_0_24px_rgba(0,255,255,0.14)]',
+    btn: 'text-cyan hover:text-cyan/70',
   },
   gold: {
     badge: 'bg-gold/10 text-gold border border-gold/25',
@@ -22,12 +22,17 @@ const accentClasses = {
     border: 'border-wire hover:border-green hover:shadow-[0_0_24px_rgba(34,197,94,0.14)]',
     btn: 'text-green hover:text-green/70',
   },
+  red: {
+    badge: 'bg-red/10 text-red border border-red/25',
+    border: 'border-wire hover:border-red hover:shadow-[0_0_24px_rgba(255,23,68,0.14)]',
+    btn: 'text-red hover:text-red/70',
+  },
 }
 
 const difficultyColors = {
   Easy: 'text-green',
   Medium: 'text-gold',
-  Hard: 'text-red-500',
+  Hard: 'text-red',
 }
 
 export default function CyberLab() {
@@ -61,7 +66,7 @@ export default function CyberLab() {
     short: string
     tags: string[]
     badge: string
-    accent: 'blue' | 'gold' | 'green'
+    accent: 'blue' | 'gold' | 'green' | 'red'
     category: 'project' | 'lab' | 'ctf'
     difficulty?: 'Easy' | 'Medium' | 'Hard'
     link?: string
@@ -96,8 +101,8 @@ export default function CyberLab() {
                 onClick={() => setFilter(f.value)}
                 className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
                   filter === f.value
-                    ? 'bg-blue text-dark border-blue'
-                    : 'bg-transparent text-muted border-wire hover:border-blue hover:text-blue'
+                    ? 'bg-red text-white border-red'
+                    : 'bg-transparent text-muted border-wire hover:border-red hover:text-red'
                 }`}
               >
                 {f.label}

@@ -1,21 +1,21 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { GraduationCap, Award, BookOpen, Terminal, Code2, FileText } from 'lucide-react'
+import { BookOpen, Terminal, Code2, FileText } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
 const INST_ICON: Record<string, { Icon: LucideIcon; cls: string }> = {
-  Teclab:    { Icon: BookOpen,  cls: 'text-blue' },
+  Teclab:    { Icon: BookOpen,  cls: 'text-red' },
   TryHackMe: { Icon: Terminal,  cls: 'text-gold' },
-  Platzi:    { Icon: Code2,     cls: 'text-green' },
+  Platzi:    { Icon: Code2,     cls: 'text-cyan' },
 }
 const DEFAULT_INST = { Icon: FileText, cls: 'text-muted' }
 
 export default function Certifications() {
   const { t } = useLanguage()
   const ref = useRef<HTMLElement>(null)
-  const [visible, setVisible] = useState(false)   
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const el = ref.current
@@ -49,7 +49,7 @@ export default function Certifications() {
                   key={i}
                   className="bg-dark border border-wire rounded-xl px-5 py-4
                              flex items-center gap-4
-                             hover:border-blue/50 transition-all duration-300"
+                             hover:border-red/50 transition-all duration-300"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateX(0)' : 'translateX(-28px)',
@@ -69,7 +69,7 @@ export default function Certifications() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-0.5">
-                      <span className="font-grotesk font-bold text-blue text-sm">
+                      <span className="font-grotesk font-bold text-red text-sm">
                         {item.institution}
                       </span>
                       <span

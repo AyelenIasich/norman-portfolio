@@ -144,7 +144,7 @@ export const es: Translations = {
         short: 'Ataque PMKID en red controlada usando Kali Linux y Wifite en entorno de laboratorio.',
         tags: ['Kali Linux', 'Wifite', 'WiFi', 'PMKID'],
         badge: 'Red Team',
-        accent: 'gold' as const,
+        accent: 'red' as const,
         category: 'lab' as const,
       },
       {
@@ -169,7 +169,7 @@ export const es: Translations = {
         short: 'Práctica de SQLi, XSS y CSRF con Burp Suite en DVWA.',
         tags: ['Burp Suite', 'SQLi', 'XSS', 'CSRF'],
         badge: 'Red Team',
-        accent: 'gold' as const,
+        accent: 'red' as const,
         category: 'lab' as const,
       },
     ],
