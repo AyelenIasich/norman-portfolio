@@ -4,35 +4,36 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Skills from '@/components/Skills'
-import Projects from '@/components/Projects'
 import CyberLab from '@/components/CyberLab'
 import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import FallingCodeBackground from '@/components/FallingCodeBackground'
 
 export default function Home() {
   return (
     <div
       className="relative min-h-screen"
-      style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%)' }}
+      style={{ background: 'var(--c-dark)' }}
     >
-      {/* Global falling code background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <FallingCodeBackground />
-      </div>
-
-      {/* Global scan lines */}
-      <div className="fixed inset-0 z-[1] pointer-events-none">
-        <div className="scan-lines" />
-      </div>
-
-      {/* Global red radial glow */}
+      {/* Grid de fondo sutil */}
       <div
-        className="fixed inset-0 pointer-events-none z-[2]"
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(var(--c-wire) 1px, transparent 1px),
+            linear-gradient(90deg, var(--c-wire) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+          opacity: 0.25,
+        }}
+      />
+
+      {/* Glow rojo central muy sutil */}
+      <div
+        className="fixed inset-0 pointer-events-none z-[1]"
         style={{
           background:
-            'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,23,68,0.08) 0%, transparent 65%)',
+            'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(255,23,68,0.05) 0%, transparent 70%)',
         }}
       />
 
