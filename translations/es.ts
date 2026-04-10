@@ -246,4 +246,55 @@ export const es: Translations = {
     quickLinks: 'Links Rápidos',
     connect: 'Conectar',
   },
+  timeline: {
+    title: 'Trayectoria',
+    subtitle: 'Mi camino en ciberseguridad',
+  },
+  skillTree: {
+    title: 'Árbol de Habilidades',
+    subtitle: 'Desbloquea tu potencial - estilo RPG',
+    categories: {
+      offensive: 'Ofensivo',
+      defensive: 'Defensivo',
+      tools: 'Herramientas',
+      fundamentals: 'Fundamentos',
+    },
+  },
+  writeups: {
+    title: 'CTF Writeups',
+    subtitle: 'Walkthroughs detallados de desafíos de seguridad',
+    searchPlaceholder: 'Buscar writeups o tags...',
+    noResults: 'No se encontraron writeups con esos filtros.',
+    filters: {
+      allPlatforms: 'Todas las plataformas',
+      allDifficulties: 'Todas las dificultades',
+      allCategories: 'Todas las categorías',
+    },
+  },
+  terminal: {
+    welcome: 'Bienvenido al Terminal NI-PORTFOLIO v2.0',
+    helpHint: 'Escribí "help" para ver los comandos',
+    placeholder: "Escribí 'help' para comandos...",
+  },
+  commandPalette: {
+    placeholder: 'Escribí un comando o buscá...',
+    noResults: 'No se encontraron comandos',
+    categories: {
+      navigation: 'Navegación',
+      theme: 'Tema',
+      language: 'Idioma',
+      tools: 'Herramientas',
+    },
+  },
+  toast: {
+    messageSent: '¡Mensaje enviado!',
+    messageSentDesc: 'Me pondré en contacto pronto.',
+    languageChanged: 'Idioma cambiado',
+    hackerMode: 'Modo hacker activado',
+    hackerModeOff: 'Modo hacker desactivado',
+  },
+  theme: {
+    hackerMode: 'Modo Hacker',
+    defaultMode: 'Modo Normal',
+  },
 }

@@ -244,6 +244,57 @@ export const en = {
     quickLinks: 'Quick Links',
     connect: 'Connect',
   },
+  timeline: {
+    title: 'Journey',
+    subtitle: 'My path in cybersecurity',
+  },
+  skillTree: {
+    title: 'Skill Tree',
+    subtitle: 'Unlock your potential - RPG style',
+    categories: {
+      offensive: 'Offensive',
+      defensive: 'Defensive',
+      tools: 'Tools',
+      fundamentals: 'Fundamentals',
+    },
+  },
+  writeups: {
+    title: 'CTF Writeups',
+    subtitle: 'Detailed walkthroughs of security challenges',
+    searchPlaceholder: 'Search writeups or tags...',
+    noResults: 'No writeups found matching your filters.',
+    filters: {
+      allPlatforms: 'All platforms',
+      allDifficulties: 'All difficulties',
+      allCategories: 'All categories',
+    },
+  },
+  terminal: {
+    welcome: 'Welcome to NI-PORTFOLIO Terminal v2.0',
+    helpHint: 'Type "help" to see available commands',
+    placeholder: "Type 'help' for commands...",
+  },
+  commandPalette: {
+    placeholder: 'Type a command or search...',
+    noResults: 'No commands found',
+    categories: {
+      navigation: 'Navigation',
+      theme: 'Theme',
+      language: 'Language',
+      tools: 'Tools',
+    },
+  },
+  toast: {
+    messageSent: 'Message sent!',
+    messageSentDesc: "I'll get back to you soon.",
+    languageChanged: 'Language changed',
+    hackerMode: 'Hacker mode activated',
+    hackerModeOff: 'Hacker mode deactivated',
+  },
+  theme: {
+    hackerMode: 'Hacker Mode',
+    defaultMode: 'Default Mode',
+  },
 }
 
 export type Translations = typeof en

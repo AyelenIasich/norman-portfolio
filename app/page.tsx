@@ -4,7 +4,10 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Skills from '@/components/Skills'
+import Timeline from '@/components/Timeline'
+import SkillTree from '@/components/SkillTree'
 import CyberLab from '@/components/CyberLab'
+import Writeups from '@/components/Writeups'
 import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -43,7 +46,10 @@ export default function Home() {
           <Hero />
           <About />
           <Skills />
+          <Timeline />
+          <SkillTree />
           <CyberLab />
+          <Writeups />
           <Certifications />
           <Contact />
         </main>

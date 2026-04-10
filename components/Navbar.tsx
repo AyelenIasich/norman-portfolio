@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, Shield } from 'lucide-react'
+import { Menu, X, Terminal, Zap } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function Navbar() {
   const { t, lang, toggleLanguage } = useLanguage()
+  const { isHackerMode, toggleTheme } = useTheme()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -15,7 +17,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setOpen(false) }
     window.addEventListener('resize', onResize)
@@ -36,6 +37,10 @@ export default function Navbar() {
     setOpen(false)
   }
 
+  const openTerminal = () => {
+    window.dispatchEvent(new CustomEvent('open-terminal'))
+  }
+
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -53,7 +58,7 @@ export default function Navbar() {
           <button
             onClick={toggleLanguage}
             className="px-3 py-1 rounded border border-cyan text-cyan text-sm font-bold
-                       hover:bg-cyan hover:text-dark transition-all"
+                       hover:bg-cyan hover:text-dark transition-all active:scale-95"
           >
             {lang === 'en' ? 'ES' : 'EN'}
           </button>
@@ -61,11 +66,33 @@ export default function Navbar() {
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className="text-muted hover:text-red transition-colors text-sm font-medium tracking-wide"
+              className="text-muted hover:text-red transition-colors text-sm font-medium tracking-wide relative
+                         after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-red
+                         after:transition-all after:duration-300 hover:after:w-full"
             >
               {l.label}
             </button>
           ))}
+          {/* Hacker mode toggle */}
+          <button
+            onClick={toggleTheme}
+            className={`p-1.5 rounded border transition-all active:scale-90 ${
+              isHackerMode
+                ? 'border-green text-green bg-green/10'
+                : 'border-wire text-muted hover:border-red hover:text-red'
+            }`}
+            title={isHackerMode ? 'Disable Hacker Mode' : 'Enable Hacker Mode'}
+          >
+            <Zap className="w-4 h-4" />
+          </button>
+          {/* Terminal toggle */}
+          <button
+            onClick={openTerminal}
+            className="p-1.5 rounded border border-wire text-muted hover:border-red hover:text-red transition-all active:scale-90"
+            title="Open Terminal (Ctrl+`)"
+          >
+            <Terminal className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Right spacer / mobile controls */}
@@ -73,9 +100,25 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1 rounded border border-cyan text-cyan text-xs font-bold"
+              className="px-2 py-1 rounded border border-cyan text-cyan text-xs font-bold active:scale-95"
             >
               {lang === 'en' ? 'ES' : 'EN'}
+            </button>
+            <button
+              onClick={toggleTheme}
+              className={`p-1 rounded border transition-all active:scale-90 ${
+                isHackerMode
+                  ? 'border-green text-green'
+                  : 'border-wire text-muted'
+              }`}
+            >
+              <Zap className="w-4 h-4" />
+            </button>
+            <button
+              onClick={openTerminal}
+              className="p-1 rounded border border-wire text-muted active:scale-90"
+            >
+              <Terminal className="w-4 h-4" />
             </button>
             <button
               onClick={() => setOpen((o) => !o)}
@@ -99,7 +142,7 @@ export default function Navbar() {
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className="text-left py-3 text-muted hover:text-red transition-colors border-b border-wire last:border-0 text-sm"
+              className="text-left py-3 text-muted hover:text-red transition-colors border-b border-wire last:border-0 text-sm active:scale-[0.98]"
             >
               {l.label}
             </button>

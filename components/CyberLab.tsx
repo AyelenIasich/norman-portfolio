@@ -123,7 +123,7 @@ export default function CyberLab() {
                     transform: visible ? 'translateY(0)' : 'translateY(20px)',
                     transition: `opacity 0.65s ease ${i * 130}ms, transform 0.65s ease ${i * 130}ms`,
                   }}
-                  className={`bg-surface rounded-xl border transition-colors duration-300 p-6 flex flex-col ${styles.border}`}
+                  className={`bg-surface rounded-xl border transition-colors duration-300 p-6 flex flex-col card-hover ${styles.border}`}
                 >
                   {/* Badge */}
                   <span className={`self-start text-xs font-bold px-2.5 py-1 rounded mb-3 ${styles.badge}`}>

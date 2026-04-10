@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { useTypingEffect } from '@/hooks/useTypingEffect'
 import { useMemo } from 'react'
+import GlitchText from '@/components/effects/GlitchText'
 
 export default function Hero() {
   const { t, lang } = useLanguage()
@@ -72,8 +73,10 @@ export default function Hero() {
               marginBottom: 28,
             }}
           >
-            NORMAN<br />
-            <span style={{ color: 'var(--c-red)' }}>IASICH</span>
+            <GlitchText text="NORMAN" /><br />
+            <span style={{ color: 'var(--c-red)' }}>
+              <GlitchText text="IASICH" />
+            </span>
           </h1>
 
           {/* Typing */}
@@ -98,6 +101,7 @@ export default function Hero() {
           <div className="flex gap-3 flex-wrap">
             <button
               onClick={() => scrollTo('cyberlab')}
+              className="btn-interactive"
               style={{
                 fontFamily: 'var(--font-jetbrains-mono), monospace',
                 fontSize: 11, fontWeight: 500, letterSpacing: '0.12em',
@@ -109,16 +113,19 @@ export default function Hero() {
               onMouseEnter={e => {
                 (e.target as HTMLButtonElement).style.background = 'var(--c-red-bright)'
                 ;(e.target as HTMLButtonElement).style.borderColor = 'var(--c-red-bright)'
+                ;(e.target as HTMLButtonElement).style.boxShadow = '0 0 20px rgba(192, 57, 43, 0.4)'
               }}
               onMouseLeave={e => {
                 (e.target as HTMLButtonElement).style.background = 'var(--c-red)'
                 ;(e.target as HTMLButtonElement).style.borderColor = 'var(--c-red)'
+                ;(e.target as HTMLButtonElement).style.boxShadow = 'none'
               }}
             >
               {t.hero.cta1}
             </button>
             <button
               onClick={() => scrollTo('contact')}
+              className="btn-interactive"
               style={{
                 fontFamily: 'var(--font-jetbrains-mono), monospace',
                 fontSize: 11, fontWeight: 500, letterSpacing: '0.12em',
