@@ -24,7 +24,7 @@ export default function Hero() {
     >
       {/* ── TOPBAR ── */}
       <header
-        className="relative z-10 flex justify-between items-center px-6 md:px-10 py-5"
+        className="relative z-10 hidden sm:flex justify-between items-center px-6 md:px-10 py-5"
         style={{ borderBottom: '1px solid var(--c-wire)' }}
       >
         <span style={{ fontSize: 11, color: 'var(--c-muted)', letterSpacing: '0.12em' }}>

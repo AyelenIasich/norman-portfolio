@@ -47,7 +47,6 @@ export default function Home() {
           <About />
           <Skills />
           <Timeline />
-          <SkillTree />
           <CyberLab items={cyberlabItems} />
           <Writeups />
           <Certifications />
