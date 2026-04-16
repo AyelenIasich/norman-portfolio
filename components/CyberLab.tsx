@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 import type { CyberlabItem } from '@/lib/getCyberlabItems'
 
@@ -151,22 +152,13 @@ export default function CyberLab({ items }: { items: CyberlabItem[] }) {
                   </div>
 
                   {/* Action button */}
-                  {item.link ? (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center gap-1 text-sm font-semibold self-start transition-colors ${styles.btn}`}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      {getButtonLabel(item.category)}
-                    </a>
-                  ) : (
-                    <span className={`flex items-center gap-1 text-sm font-semibold self-start opacity-50 ${styles.btn}`}>
-                      <ExternalLink className="w-4 h-4" />
-                      {getButtonLabel(item.category)}
-                    </span>
-                  )}
+                  <Link
+                    href={`/cyberlab/${item.slug}`}
+                    className={`flex items-center gap-1 text-sm font-semibold self-start transition-colors ${styles.btn}`}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                    {getButtonLabel(item.category)}
+                  </Link>
                 </article>
               )
             })}

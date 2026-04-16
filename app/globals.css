@@ -315,3 +315,118 @@ body {
     transform: none;
   }
 }
+
+/* ─── Prose CyberLab (markdown content) ─── */
+.prose-cyberlab {
+  color: var(--c-muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.prose-cyberlab h1,
+.prose-cyberlab h2,
+.prose-cyberlab h3,
+.prose-cyberlab h4 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  color: var(--c-snow);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.prose-cyberlab h1 { font-size: 1.75rem; }
+.prose-cyberlab h2 { font-size: 1.35rem; border-bottom: 1px solid var(--c-wire); padding-bottom: 0.4rem; }
+.prose-cyberlab h3 { font-size: 1.1rem; }
+
+.prose-cyberlab p {
+  margin-bottom: 1rem;
+}
+
+.prose-cyberlab a {
+  color: var(--c-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-cyberlab a:hover {
+  opacity: 0.75;
+}
+
+.prose-cyberlab strong {
+  color: var(--c-snow);
+  font-weight: 600;
+}
+
+.prose-cyberlab code {
+  background: var(--c-surface);
+  color: var(--c-cyan);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  border: 1px solid var(--c-wire);
+}
+
+.prose-cyberlab pre {
+  background: var(--c-surface) !important;
+  border: 1px solid var(--c-wire);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+
+.prose-cyberlab pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--c-snow);
+  font-size: 0.875rem;
+}
+
+.prose-cyberlab ul,
+.prose-cyberlab ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-cyberlab ul { list-style-type: disc; }
+.prose-cyberlab ol { list-style-type: decimal; }
+
+.prose-cyberlab li {
+  margin-bottom: 0.35rem;
+}
+
+.prose-cyberlab blockquote {
+  border-left: 3px solid var(--c-red);
+  padding-left: 1rem;
+  color: var(--c-muted);
+  font-style: italic;
+  margin: 1.25rem 0;
+}
+
+.prose-cyberlab table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.prose-cyberlab th {
+  color: var(--c-snow);
+  border-bottom: 1px solid var(--c-wire);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.prose-cyberlab td {
+  border-bottom: 1px solid var(--c-wire);
+  padding: 0.5rem 0.75rem;
+}
+
+.prose-cyberlab hr {
+  border: none;
+  border-top: 1px solid var(--c-wire);
+  margin: 2rem 0;
+}
