@@ -11,7 +11,7 @@
   --c-green:      #2ecc71;
   --c-gold:       #fbbf24;
   --c-snow:       #f0eaea;
-  --c-muted:      #6b4040;
+  --c-muted:      #a07878;
   --c-wire:       #231515;
 }
 
@@ -318,7 +318,7 @@ body {
 
 /* ─── Prose CyberLab (markdown content) ─── */
 .prose-cyberlab {
-  color: var(--c-muted);
+  color: #b09090;
   line-height: 1.8;
   font-size: 0.95rem;
 }
