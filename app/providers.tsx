@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { ThemeProvider, useTheme } from '@/context/ThemeContext'
 import { ToastProvider } from '@/context/ToastContext'
-import SpotlightEffect from '@/components/effects/SpotlightEffect'
 import CustomCursor from '@/components/effects/CustomCursor'
 import ScrollProgress from '@/components/effects/ScrollProgress'
 import MatrixRain from '@/components/effects/MatrixRain'
@@ -65,9 +64,6 @@ function GlobalEffects({ children }: { children: React.ReactNode }) {
     <>
       {/* Noise texture overlay */}
       <div className="noise-overlay" />
-
-      {/* Spotlight cursor effect */}
-      <SpotlightEffect />
 
       {/* Custom cursor */}
       <CustomCursor />
