@@ -1,5 +1,3 @@
-'use client'
-
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
@@ -11,8 +9,10 @@ import Writeups from '@/components/Writeups'
 import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import { getCyberlabItems } from '@/lib/getCyberlabItems'
 
 export default function Home() {
+  const cyberlabItems = getCyberlabItems()
   return (
     <div
       className="relative min-h-screen"
@@ -48,7 +48,7 @@ export default function Home() {
           <Skills />
           <Timeline />
           <SkillTree />
-          <CyberLab />
+          <CyberLab items={cyberlabItems} />
           <Writeups />
           <Certifications />
           <Contact />

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { ExternalLink } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import type { CyberlabItem } from '@/lib/getCyberlabItems'
 
 type Filter = 'all' | 'project' | 'lab' | 'ctf'
 
@@ -35,7 +36,7 @@ const difficultyColors = {
   Hard: 'text-red',
 }
 
-export default function CyberLab() {
+export default function CyberLab({ items }: { items: CyberlabItem[] }) {
   const { t } = useLanguage()
   const ref = useRef<HTMLElement>(null)
   const [visible, setVisible] = useState(false)
@@ -59,18 +60,9 @@ export default function CyberLab() {
     { label: t.cyberlab.filters.ctfs, value: 'ctf' },
   ]
 
-  const filtered = t.cyberlab.items.filter(
+  const filtered = items.filter(
     (item) => filter === 'all' || item.category === filter
-  ) as Array<{
-    title: string
-    short: string
-    tags: string[]
-    badge: string
-    accent: 'blue' | 'gold' | 'green' | 'red'
-    category: 'project' | 'lab' | 'ctf'
-    difficulty?: 'Easy' | 'Medium' | 'Hard'
-    link?: string
-  }>
+  )
 
   const getButtonLabel = (category: string) => {
     switch (category) {
