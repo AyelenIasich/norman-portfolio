@@ -1,24 +1,29 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useSpring, useTransform } from 'framer-motion'
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
 
+  const rawX = useSpring(0, { stiffness: 800, damping: 40, mass: 0.1 })
+  const rawY = useSpring(0, { stiffness: 800, damping: 40, mass: 0.1 })
+
+  const x = useTransform(rawX, (v) => `calc(${v}px - 50%)`)
+  const y = useTransform(rawY, (v) => `calc(${v}px - 50%)`)
+
   useEffect(() => {
-    // Check if touch device
     const checkTouch = () => {
       setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
     }
     checkTouch()
 
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
+      rawX.set(e.clientX)
+      rawY.set(e.clientY)
       if (!isVisible) setIsVisible(true)
     }
 
@@ -27,12 +32,10 @@ export default function CustomCursor() {
     const handleMouseLeave = () => setIsVisible(false)
     const handleMouseEnter = () => setIsVisible(true)
 
-    // Add hover detection for interactive elements
     const addHoverListeners = () => {
       const interactiveElements = document.querySelectorAll(
         'a, button, [role="button"], input, textarea, select, [data-cursor-hover]'
       )
-
       interactiveElements.forEach((el) => {
         el.addEventListener('mouseenter', () => setIsHovering(true))
         el.addEventListener('mouseleave', () => setIsHovering(false))
@@ -45,7 +48,6 @@ export default function CustomCursor() {
     document.body.addEventListener('mouseleave', handleMouseLeave)
     document.body.addEventListener('mouseenter', handleMouseEnter)
 
-    // Initial setup and mutation observer for dynamically added elements
     addHoverListeners()
     const observer = new MutationObserver(addHoverListeners)
     observer.observe(document.body, { childList: true, subtree: true })
@@ -58,14 +60,12 @@ export default function CustomCursor() {
       document.body.removeEventListener('mouseenter', handleMouseEnter)
       observer.disconnect()
     }
-  }, [isVisible])
+  }, [isVisible, rawX, rawY])
 
-  // Don't render on touch devices
   if (isTouchDevice) return null
 
   return (
     <>
-      {/* Hide default cursor */}
       <style jsx global>{`
         * {
           cursor: none !important;
@@ -77,14 +77,13 @@ export default function CustomCursor() {
         }
       `}</style>
 
-      {/* Main cursor dot */}
+      {/* Main cursor dot — mix-blend-difference mantenido */}
       <motion.div
         className="fixed pointer-events-none z-[10001] mix-blend-difference"
         style={{
-          left: position.x,
-          top: position.y,
-          translateX: '-50%',
-          translateY: '-50%',
+          translateX: x,
+          translateY: y,
+          willChange: 'transform',
         }}
         animate={{
           scale: isClicking ? 0.5 : isHovering ? 1.5 : 1,
@@ -107,10 +106,9 @@ export default function CustomCursor() {
       <motion.div
         className="fixed pointer-events-none z-[10000]"
         style={{
-          left: position.x,
-          top: position.y,
-          translateX: '-50%',
-          translateY: '-50%',
+          translateX: x,
+          translateY: y,
+          willChange: 'transform',
         }}
         animate={{
           scale: isClicking ? 0.8 : isHovering ? 1.8 : 1,
@@ -137,10 +135,9 @@ export default function CustomCursor() {
       <motion.div
         className="fixed pointer-events-none z-[9999]"
         style={{
-          left: position.x,
-          top: position.y,
-          translateX: '-50%',
-          translateY: '-50%',
+          translateX: x,
+          translateY: y,
+          willChange: 'transform',
         }}
         animate={{
           opacity: isVisible ? 0.2 : 0,
