@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, FileText } from 'lucide-react'
 import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 import type { CyberlabItem } from '@/lib/getCyberlabItems'
@@ -151,14 +151,22 @@ export default function CyberLab({ items }: { items: CyberlabItem[] }) {
                     ))}
                   </div>
 
-                  {/* Action button */}
-                  <Link
-                    href={`/cyberlab/${item.slug}`}
-                    className={`flex items-center gap-1 text-sm font-semibold self-start transition-colors ${styles.btn}`}
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                    {getButtonLabel(item.category)}
-                  </Link>
+                  {/* Footer: action + PDF indicator */}
+                  <div className="flex items-center justify-between mt-auto pt-2">
+                    <Link
+                      href={`/cyberlab/${item.slug}`}
+                      className={`flex items-center gap-1 text-sm font-semibold transition-colors ${styles.btn}`}
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                      {getButtonLabel(item.category)}
+                    </Link>
+                    {item.link && (
+                      <span className="flex items-center gap-1 text-xs text-muted border border-wire rounded px-2 py-0.5">
+                        <FileText className="w-3 h-3" />
+                        PDF
+                      </span>
+                    )}
+                  </div>
                 </article>
               )
             })}

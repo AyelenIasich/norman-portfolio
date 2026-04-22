@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ArrowLeft, FileText } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
@@ -88,16 +88,16 @@ export default async function CyberlabItemPage({ params }: { params: Promise<{ s
             ))}
           </div>
 
-          {/* External link */}
+          {/* Full report link */}
           {item.link && (
             <a
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors ${colors.text} hover:opacity-70`}
+              className={`inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded border transition-colors ${colors.badge} hover:opacity-80`}
             >
-              <ExternalLink className="w-4 h-4" />
-              {item.link}
+              <FileText className="w-4 h-4" />
+              Ver informe completo (PDF)
             </a>
           )}
         </div>

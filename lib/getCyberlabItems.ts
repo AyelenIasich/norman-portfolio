@@ -50,7 +50,7 @@ export function getCyberlabItems(): CyberlabItem[] {
         accent: data.accent ?? 'blue',
         category: CATEGORY_MAP[folder],
         difficulty: data.difficulty,
-        link: data.link,
+        link: typeof data.link === 'string' && data.link.startsWith('http') ? data.link : undefined,
         order: data.order,
       })
     }
@@ -59,7 +59,11 @@ export function getCyberlabItems(): CyberlabItem[] {
   return items.sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
 }
 
+const SAFE_SLUG = /^[a-z0-9-_]+$/i
+
 export function getCyberlabItemBySlug(slug: string): CyberlabItemFull | null {
+  if (!SAFE_SLUG.test(slug)) return null
+
   for (const folder of Object.keys(CATEGORY_MAP)) {
     const filePath = path.join(BASE_DIR, folder, `${slug}.md`)
     if (!fs.existsSync(filePath)) continue
