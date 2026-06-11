@@ -1,10 +1,14 @@
 'use client'
 
-import { Shield } from 'lucide-react'
+import { Shield, Terminal, Zap } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function Footer() {
   const { t } = useLanguage()
+  const { isHackerMode, toggleTheme } = useTheme()
+
+  const openTerminal = () => window.dispatchEvent(new CustomEvent('open-terminal'))
   const year = new Date().getFullYear()
 
   const scroll = (id: string) =>
@@ -88,6 +92,26 @@ export default function Footer() {
           <p className="font-mono text-xs text-red/50 tracking-wider">
             &#x226B; SECURE BY DESIGN &#x226A;
           </p>
+
+          {/* Easter egg — hidden controls */}
+          <div className="flex items-center gap-2 opacity-10 hover:opacity-30 transition-opacity duration-500">
+            <button
+              onClick={toggleTheme}
+              title=""
+              className={`p-1 rounded transition-colors ${
+                isHackerMode ? 'text-green' : 'text-muted'
+              }`}
+            >
+              <Zap className="w-3 h-3" />
+            </button>
+            <button
+              onClick={openTerminal}
+              title=""
+              className="p-1 rounded text-muted"
+            >
+              <Terminal className="w-3 h-3" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

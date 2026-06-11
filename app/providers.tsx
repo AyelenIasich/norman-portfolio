@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from 'react'
 import { ThemeProvider, useTheme } from '@/context/ThemeContext'
 import { ToastProvider } from '@/context/ToastContext'
 import CustomCursor from '@/components/effects/CustomCursor'
-import ScrollProgress from '@/components/effects/ScrollProgress'
 import MatrixRain from '@/components/effects/MatrixRain'
 import Terminal from '@/components/terminal/Terminal'
 import CommandPalette from '@/components/CommandPalette'
@@ -67,9 +66,6 @@ function GlobalEffects({ children }: { children: React.ReactNode }) {
 
       {/* Custom cursor */}
       <CustomCursor />
-
-      {/* Scroll progress bar */}
-      <ScrollProgress />
 
       {/* Matrix rain (hacker mode) */}
       <MatrixRain isActive={isHackerMode} />
