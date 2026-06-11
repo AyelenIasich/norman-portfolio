@@ -171,22 +171,6 @@ export const es: Translations = {
       tryhackme: 'TryHackMe',
       email: 'Email',
     },
-    form: {
-      name: 'Nombre',
-      email: 'Email',
-      message: 'Mensaje',
-      namePlaceholder: 'Tu nombre',
-      emailPlaceholder: 'tu@email.com',
-      messagePlaceholder: 'Tu mensaje...',
-      submit: 'Enviar Mensaje',
-      success: '¡Mensaje enviado! Me pondré en contacto pronto.',
-      sendAnother: 'Enviar otro mensaje',
-    },
-    errors: {
-      nameRequired: 'El nombre es obligatorio',
-      emailInvalid: 'Ingresá un email válido',
-      messageRequired: 'El mensaje es obligatorio',
-    },
   },
   footer: {
     rights: 'Todos los derechos reservados.',

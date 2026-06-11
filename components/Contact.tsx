@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { Linkedin, Github, Mail, Crosshair, CheckCircle, type LucideIcon } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Linkedin, Github, Mail, Crosshair, type LucideIcon } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
 interface SocialCard {
@@ -39,9 +39,6 @@ export default function Contact() {
   const { t } = useLanguage()
   const ref = useRef<HTMLElement>(null)
   const [visible, setVisible] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [errors, setErrors] = useState<Record<string, string>>({})
-  const [sent, setSent] = useState(false)
 
   useEffect(() => {
     const el = ref.current
@@ -53,23 +50,6 @@ export default function Contact() {
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
-
-  const validate = () => {
-    const e: Record<string, string> = {}
-    if (!form.name.trim())   e.name    = t.contact.errors.nameRequired
-    if (!/\S+@\S+\.\S+/.test(form.email)) e.email = t.contact.errors.emailInvalid
-    if (!form.message.trim()) e.message = t.contact.errors.messageRequired
-    return e
-  }
-
-  const handleSubmit = (ev: React.FormEvent) => {
-    ev.preventDefault()
-    const e = validate()
-    if (Object.keys(e).length) { setErrors(e); return }
-    setErrors({})
-    setSent(true)
-    setForm({ name: '', email: '', message: '' })
-  }
 
   const socials: SocialCard[] = [
     {
@@ -100,7 +80,7 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={ref} className="py-24 px-4">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         <div
           className={`transition-all duration-700 ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -114,99 +94,10 @@ export default function Contact() {
             {t.contact.description}
           </p>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Social grid */}
-            <div className="grid grid-cols-2 gap-4 content-start">
-              {socials.map((s) => (
-                <ContactCard key={s.href} {...s} />
-              ))}
-            </div>
-
-            {/* Form */}
-            <div>
-              {sent ? (
-                <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                  <CheckCircle className="w-14 h-14 text-red" strokeWidth={1.5} />
-                  <p className="text-snow font-medium">{t.contact.form.success}</p>
-                  <button
-                    onClick={() => setSent(false)}
-                    className="text-red text-sm hover:underline"
-                  >
-                    {t.contact.form.sendAnother}
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-                  {/* Name */}
-                  <div>
-                    <label className="block text-muted text-sm mb-1.5">
-                      {t.contact.form.name}
-                    </label>
-                    <input
-                      type="text"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder={t.contact.form.namePlaceholder}
-                      className={`w-full bg-surface border rounded-lg px-4 py-3 text-snow text-sm
-                                  placeholder-muted/40 focus:outline-none focus:border-red transition-colors ${
-                        errors.name ? 'border-red-500' : 'border-wire'
-                      }`}
-                    />
-                    {errors.name && (
-                      <p className="text-red-400 text-xs mt-1">{errors.name}</p>
-                    )}
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="block text-muted text-sm mb-1.5">
-                      {t.contact.form.email}
-                    </label>
-                    <input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder={t.contact.form.emailPlaceholder}
-                      className={`w-full bg-surface border rounded-lg px-4 py-3 text-snow text-sm
-                                  placeholder-muted/40 focus:outline-none focus:border-red transition-colors ${
-                        errors.email ? 'border-red-500' : 'border-wire'
-                      }`}
-                    />
-                    {errors.email && (
-                      <p className="text-red-400 text-xs mt-1">{errors.email}</p>
-                    )}
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="block text-muted text-sm mb-1.5">
-                      {t.contact.form.message}
-                    </label>
-                    <textarea
-                      rows={5}
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder={t.contact.form.messagePlaceholder}
-                      className={`w-full bg-surface border rounded-lg px-4 py-3 text-snow text-sm
-                                  placeholder-muted/40 focus:outline-none focus:border-red transition-colors
-                                  resize-none ${errors.message ? 'border-red-500' : 'border-wire'}`}
-                    />
-                    {errors.message && (
-                      <p className="text-red-400 text-xs mt-1">{errors.message}</p>
-                    )}
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3 bg-red text-white font-grotesk font-bold rounded-lg
-                               hover:bg-red-bright transition-all active:scale-95
-                               hover:shadow-[0_0_24px_rgba(255,23,68,0.4)]"
-                  >
-                    {t.contact.form.submit}
-                  </button>
-                </form>
-              )}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {socials.map((s) => (
+              <ContactCard key={s.href} {...s} />
+            ))}
           </div>
         </div>
       </div>

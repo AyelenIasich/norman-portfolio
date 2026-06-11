@@ -169,22 +169,6 @@ export const en = {
       tryhackme: 'TryHackMe',
       email: 'Email',
     },
-    form: {
-      name: 'Name',
-      email: 'Email',
-      message: 'Message',
-      namePlaceholder: 'Your name',
-      emailPlaceholder: 'your@email.com',
-      messagePlaceholder: 'Your message...',
-      submit: 'Send Message',
-      success: "Message sent! I'll get back to you soon.",
-      sendAnother: 'Send another message',
-    },
-    errors: {
-      nameRequired: 'Name is required',
-      emailInvalid: 'Please enter a valid email',
-      messageRequired: 'Message is required',
-    },
   },
   footer: {
     rights: 'All rights reserved.',
