@@ -7,6 +7,7 @@ export const es: Translations = {
     skills: 'Habilidades',
     projects: 'Proyectos',
     cyberlab: 'CyberLab',
+    education: 'Educación',
     certifications: 'Certificaciones',
     contact: 'Contacto',
   },
@@ -122,18 +123,26 @@ export const es: Translations = {
     viewDocs: 'Ver Documentación',
     viewMethodology: 'Ver Metodología',
   },
-  certifications: {
-    title: 'Educación y Certificaciones',
-    subtitle: 'Mi camino de aprendizaje',
+  education: {
+    title: 'Educación',
+    subtitle: 'Mi formación académica formal',
     inProgress: 'En Curso',
     completed: 'Completado',
     items: [
       {
         institution: 'Teclab',
-        title: 'Tecnicatura en Ciberseguridad',
+        degree: 'Tecnicatura en Ciberseguridad',
         period: '2026 – Presente',
         status: 'inProgress' as const,
       },
+    ],
+  },
+  certifications: {
+    title: 'Certificaciones',
+    subtitle: 'Plataformas y cursos completados',
+    inProgress: 'En Curso',
+    completed: 'Completado',
+    items: [
       {
         institution: 'TryHackMe',
         title: 'Pre-Security Path',

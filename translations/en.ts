@@ -5,6 +5,7 @@ export const en = {
     skills: 'Skills',
     projects: 'Projects',
     cyberlab: 'CyberLab',
+    education: 'Education',
     certifications: 'Certifications',
     contact: 'Contact',
   },
@@ -120,18 +121,26 @@ export const en = {
     viewDocs: 'View Documentation',
     viewMethodology: 'View Methodology',
   },
-  certifications: {
-    title: 'Education & Certifications',
-    subtitle: 'My learning journey',
+  education: {
+    title: 'Education',
+    subtitle: 'My formal academic path',
     inProgress: 'In Progress',
     completed: 'Completed',
     items: [
       {
         institution: 'Teclab',
-        title: 'Tecnicatura en Ciberseguridad',
+        degree: 'Tecnicatura en Ciberseguridad',
         period: '2026 – Present',
         status: 'inProgress' as const,
       },
+    ],
+  },
+  certifications: {
+    title: 'Certifications',
+    subtitle: 'Platforms & courses completed',
+    inProgress: 'In Progress',
+    completed: 'Completed',
+    items: [
       {
         institution: 'TryHackMe',
         title: 'Pre-Security Path',

@@ -6,6 +6,7 @@ import Timeline from '@/components/Timeline'
 import SkillTree from '@/components/SkillTree'
 import CyberLab from '@/components/CyberLab'
 // import Writeups from '@/components/Writeups'
+import Education from '@/components/Education'
 import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -49,6 +50,7 @@ export default function Home() {
           <Timeline />
           <CyberLab items={cyberlabItems} />
           {/* <Writeups /> */}
+          <Education />
           <Certifications />
           <Contact />
         </main>
