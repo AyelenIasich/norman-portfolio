@@ -23,7 +23,7 @@ const EVENT_META: { icon: LucideIcon; category: EventCategory; date: string }[] 
   { icon: Terminal,      category: 'milestone',     date: '2026' },
 ]
 
-const categoryColors: Record<TimelineEvent['category'], string> = {
+const categoryColors: Record<EventCategory, string> = {
   education: 'bg-red text-red',
   certification: 'bg-gold text-gold',
   ctf: 'bg-green text-green',
