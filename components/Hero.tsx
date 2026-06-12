@@ -58,7 +58,7 @@ export default function Hero() {
             textTransform: 'uppercase', marginBottom: 36
           }}>
             <span style={{ display: 'block', width: 24, height: 1, background: 'var(--c-red)' }} />
-            Perfil de seguridad
+            {t.hero.sectionLabel}
           </div>
 
           {/* Name */}
@@ -94,7 +94,7 @@ export default function Hero() {
             maxWidth: 440, marginBottom: 48, fontWeight: 300
           }}>
             {t.hero.tagline}.<br />
-            Pentesting · Networking · Sistemas Linux.
+            {t.hero.subtitle}
           </p>
 
           {/* CTAs */}
@@ -154,10 +154,10 @@ export default function Hero() {
           {/* Block: Especialización */}
           <div style={{ borderTop: '1px solid var(--c-wire)', borderBottom: '1px solid var(--c-wire)', padding: '18px 0' }}>
             <p style={{ fontSize: 9, color: 'var(--c-muted)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 10 }}>
-              Especialización
+              {t.hero.panel.specialization}
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {['Pentesting', 'Red Team', 'Networking', 'Kali Linux', 'CTF'].map(tag => (
+              {t.hero.panel.tags.map(tag => (
                 <span
                   key={tag}
                   style={{
@@ -177,14 +177,9 @@ export default function Hero() {
           {/* Block: Stack */}
           <div style={{ borderBottom: '1px solid var(--c-wire)', padding: '18px 0' }}>
             <p style={{ fontSize: 9, color: 'var(--c-muted)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 12 }}>
-              Stack activo
+              {t.hero.panel.stack}
             </p>
-            {[
-              { name: 'Linux', pct: 88 },
-              { name: 'Networking', pct: 75 },
-              { name: 'Pentesting', pct: 62 },
-              { name: 'Scripting', pct: 55 },
-            ].map(({ name, pct }, i) => (
+            {t.hero.panel.bars.map(({ name, pct }, i) => (
               <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
                 <span style={{ fontSize: 10, color: 'var(--c-muted)', width: 80, flexShrink: 0 }}>{name}</span>
                 <div style={{ flex: 1, height: 3, background: 'var(--c-wire)', position: 'relative', overflow: 'hidden' }}>
@@ -204,20 +199,20 @@ export default function Hero() {
           {/* Block: Plataformas */}
           <div style={{ borderBottom: '1px solid var(--c-wire)', padding: '18px 0' }}>
             <p style={{ fontSize: 9, color: 'var(--c-muted)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 8 }}>
-              Plataformas
+              {t.hero.panel.platforms}
             </p>
             <p style={{ fontSize: 11, color: 'var(--c-muted)' }}>
-              TryHackMe · Kali NetHunter · HackTheBox
+              {t.hero.panel.platformsList}
             </p>
           </div>
 
           {/* Block: Estado */}
           <div style={{ padding: '18px 0' }}>
             <p style={{ fontSize: 9, color: 'var(--c-muted)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 8 }}>
-              Estado
+              {t.hero.panel.status}
             </p>
             <p style={{ fontSize: 11, color: 'var(--c-green)' }}>
-              Disponible para oportunidades
+              {t.hero.panel.available}
             </p>
           </div>
 

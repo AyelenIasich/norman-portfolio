@@ -12,65 +12,15 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
-interface TimelineEvent {
-  id: string
-  date: string
-  title: string
-  description: string
-  icon: LucideIcon
-  category: 'education' | 'certification' | 'ctf' | 'milestone'
-  link?: string
-}
+type EventCategory = 'education' | 'certification' | 'ctf' | 'milestone'
 
-const events: TimelineEvent[] = [
-  {
-    id: '1',
-    date: '2026',
-    title: 'Started Cybersecurity Degree',
-    description: 'Began Tecnicatura en Ciberseguridad at Teclab, Argentina',
-    icon: GraduationCap,
-    category: 'education',
-  },
-  {
-    id: '2',
-    date: '2026',
-    title: 'Platzi: Intro to Cybersecurity',
-    description: 'Completed introductory cybersecurity course on Platzi',
-    icon: BookOpen,
-    category: 'certification',
-  },
-  {
-    id: '3',
-    date: '2026',
-    title: 'Platzi: Networking Course',
-    description: 'Completed networking fundamentals course',
-    icon: BookOpen,
-    category: 'certification',
-  },
-  {
-    id: '4',
-    date: '2026',
-    title: 'TryHackMe: Pre-Security Path',
-    description: 'Completed Pre-Security learning path on TryHackMe',
-    icon: Award,
-    category: 'certification',
-  },
-  {
-    id: '5',
-    date: '2026',
-    title: 'First CTF Completed',
-    description: 'Successfully rooted first TryHackMe machine (Blue Room)',
-    icon: Target,
-    category: 'ctf',
-  },
-  {
-    id: '6',
-    date: '2026',
-    title: 'TryHackMe: Jr Penetration Tester',
-    description: 'Currently pursuing Jr Penetration Tester path',
-    icon: Terminal,
-    category: 'milestone',
-  },
+const EVENT_META: { icon: LucideIcon; category: EventCategory; date: string }[] = [
+  { icon: GraduationCap, category: 'education',     date: '2026' },
+  { icon: BookOpen,      category: 'certification', date: '2026' },
+  { icon: BookOpen,      category: 'certification', date: '2026' },
+  { icon: Award,         category: 'certification', date: '2026' },
+  { icon: Target,        category: 'ctf',           date: '2026' },
+  { icon: Terminal,      category: 'milestone',     date: '2026' },
 ]
 
 const categoryColors: Record<TimelineEvent['category'], string> = {
@@ -110,22 +60,24 @@ export default function Timeline() {
           transition={{ duration: 0.7 }}
         >
           <h2 className="font-grotesk text-3xl sm:text-4xl font-bold text-snow text-center mb-1">
-            Journey
+            {t.timeline.title}
           </h2>
-          <p className="text-muted text-center mb-14">My path in cybersecurity</p>
+          <p className="text-muted text-center mb-14">{t.timeline.subtitle}</p>
 
           <div className="relative">
             {/* Vertical line */}
             <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-wire" />
 
             <div className="space-y-8">
-              {events.map((event, index) => {
-                const Icon = event.icon
+              {EVENT_META.map((meta, index) => {
+                const Icon = meta.icon
                 const isLeft = index % 2 === 0
+                const ev = t.timeline.events[index]
+                const [bgCls, textCls] = categoryColors[meta.category].split(' ')
 
                 return (
                   <motion.div
-                    key={event.id}
+                    key={index}
                     initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                     animate={visible ? { opacity: 1, x: 0 } : {}}
                     transition={{
@@ -144,24 +96,20 @@ export default function Timeline() {
                         className="bg-surface border border-wire rounded-xl p-5 hover:border-red/50 transition-colors duration-300 group"
                       >
                         <div className="flex items-start gap-4">
-                          <div
-                            className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${categoryColors[event.category].split(' ')[0]}/10`}
-                          >
-                            <Icon className={`w-5 h-5 ${categoryColors[event.category].split(' ')[1]}`} />
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${bgCls}/10`}>
+                            <Icon className={`w-5 h-5 ${textCls}`} />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                              <span className="text-xs text-muted font-mono">{event.date}</span>
-                              <span
-                                className={`text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold ${categoryColors[event.category].split(' ')[0]}/20 ${categoryColors[event.category].split(' ')[1]}`}
-                              >
-                                {event.category}
+                              <span className="text-xs text-muted font-mono">{meta.date}</span>
+                              <span className={`text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold ${bgCls}/20 ${textCls}`}>
+                                {t.timeline.categories[meta.category]}
                               </span>
                             </div>
                             <h3 className="font-grotesk font-bold text-snow mb-1 group-hover:text-red transition-colors">
-                              {event.title}
+                              {ev.title}
                             </h3>
-                            <p className="text-muted text-sm">{event.description}</p>
+                            <p className="text-muted text-sm">{ev.description}</p>
                           </div>
                         </div>
                       </motion.div>

@@ -134,7 +134,7 @@ export default function CyberLab({ items }: { items: CyberlabItem[] }) {
                   {/* Difficulty for CTFs */}
                   {item.difficulty && (
                     <p className="text-xs font-semibold mb-3">
-                      <span className="text-muted">Difficulty: </span>
+                      <span className="text-muted">{t.cyberlab.difficulty}: </span>
                       <span className={difficultyColors[item.difficulty]}>{item.difficulty}</span>
                     </p>
                   )}

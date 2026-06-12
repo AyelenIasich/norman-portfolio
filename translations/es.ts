@@ -22,6 +22,23 @@ export const es: Translations = {
     cta1: 'Ver Proyectos',
     cta2: 'Contactarme',
     scroll: 'desplazar',
+    sectionLabel: 'Perfil de seguridad',
+    subtitle: 'Pentesting · Networking · Sistemas Linux.',
+    panel: {
+      specialization: 'Especialización',
+      stack: 'Stack activo',
+      platforms: 'Plataformas',
+      platformsList: 'TryHackMe · CyLab · HackTheBox',
+      status: 'Estado',
+      available: 'Disponible para oportunidades',
+      tags: ['Pentesting', 'Red Team', 'Networking', 'Kali Linux', 'CTF'],
+      bars: [
+        { name: 'Linux',       pct: 88 },
+        { name: 'Redes',       pct: 75 },
+        { name: 'Pentesting',  pct: 62 },
+        { name: 'Scripting',   pct: 55 },
+      ],
+    },
   },
   about: {
     title: 'Sobre Mí',
@@ -122,6 +139,7 @@ export const es: Translations = {
     viewWriteup: 'Ver Write-up',
     viewDocs: 'Ver Documentación',
     viewMethodology: 'Ver Metodología',
+    difficulty: 'Dificultad',
   },
   education: {
     title: 'Educación',
@@ -131,7 +149,7 @@ export const es: Translations = {
     items: [
       {
         institution: 'Teclab',
-        degree: 'Tecnicatura en Ciberseguridad',
+        degree: 'Técnico Superior en Ciberseguridad',
         period: '2026 – Presente',
         status: 'inProgress' as const,
       },
@@ -190,6 +208,20 @@ export const es: Translations = {
   timeline: {
     title: 'Trayectoria',
     subtitle: 'Mi camino en ciberseguridad',
+    categories: {
+      education: 'Educación',
+      certification: 'Certificación',
+      ctf: 'CTF',
+      milestone: 'Hito',
+    },
+    events: [
+      { title: 'Inicio de la Carrera',                description: 'Comienzo del Técnico Superior en Ciberseguridad en Teclab, Argentina' },
+      { title: 'Platzi: Introducción a Ciberseguridad', description: 'Completé el curso introductorio de ciberseguridad en Platzi' },
+      { title: 'Platzi: Curso de Redes',              description: 'Completé el curso de fundamentos de redes' },
+      { title: 'TryHackMe: Pre-Security Path',        description: 'Completé el camino de aprendizaje Pre-Security en TryHackMe' },
+      { title: 'Primer CTF Completado',               description: 'Comprometí exitosamente mi primera máquina en TryHackMe (Blue Room)' },
+      { title: 'TryHackMe: Jr Penetration Tester',    description: 'Actualmente cursando el camino Jr Penetration Tester' },
+    ],
   },
   skillTree: {
     title: 'Árbol de Habilidades',

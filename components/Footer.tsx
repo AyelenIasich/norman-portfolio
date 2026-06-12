@@ -39,7 +39,7 @@ export default function Footer() {
               Norman Iasich
             </div>
             <p className="text-muted text-sm italic leading-relaxed">
-              &ldquo;From curiosity to cybersecurity&rdquo;
+              &ldquo;{t.hero.tagline}&rdquo;
             </p>
           </div>
 
