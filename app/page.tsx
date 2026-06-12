@@ -47,7 +47,7 @@ export default function Home() {
           <Hero />
           <About />
           <Skills />
-          <Timeline />
+          {/* <Timeline /> */}
           <CyberLab items={cyberlabItems} />
           {/* <Writeups /> */}
           <Education />
