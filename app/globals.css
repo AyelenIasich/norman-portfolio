@@ -45,6 +45,11 @@ body {
 }
 .cursor { display: inline-block; animation: blink 0.85s step-end infinite; }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ─── Fade-in utility ─── */
 .fade-in {
   opacity: 0;
