@@ -22,11 +22,7 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { label: t.nav.home,           id: 'home' },
-    { label: t.nav.about,          id: 'about' },
-    { label: t.nav.skills,         id: 'skills' },
     { label: t.nav.cyberlab,       id: 'cyberlab' },
-    { label: t.nav.education,      id: 'education' },
     { label: t.nav.certifications, id: 'certifications' },
     { label: t.nav.contact,        id: 'contact' },
   ]
