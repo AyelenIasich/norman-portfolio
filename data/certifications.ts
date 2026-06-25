@@ -24,8 +24,6 @@ export interface Certification {
   pdf?: string
 }
 
-const PLATZI_PROFILE = 'https://platzi.com/@normaniasich/'
-
 export const certifications: Certification[] = [
   {
     id: 'thm-presecurity',
@@ -44,27 +42,27 @@ export const certifications: Certification[] = [
     institution: 'Platzi',
     status: 'completed',
     image: '/certificates/platzi-intro-ciber.png',
-    verifyUrl: PLATZI_PROFILE,
+    verifyUrl: 'https://platzi.com/p/normaniasich/curso/12840-ciberseguridad/diploma/detalle/',
   },
   {
     id: 'platzi-redes',
     institution: 'Platzi',
     status: 'completed',
     image: '/certificates/platzi-redes.png',
-    verifyUrl: PLATZI_PROFILE,
+    verifyUrl: 'https://platzi.com/p/normaniasich/curso/2225-redes/diploma/detalle/',
   },
   {
     id: 'platzi-terminal',
     institution: 'Platzi',
     status: 'completed',
     image: '/certificates/platzi-terminal.png',
-    verifyUrl: PLATZI_PROFILE,
+    verifyUrl: 'https://platzi.com/p/normaniasich/curso/12040-terminal/diploma/detalle/',
   },
   {
     id: 'platzi-computacion',
     institution: 'Platzi',
     status: 'completed',
     image: '/certificates/platzi-computacion-basica.png',
-    verifyUrl: PLATZI_PROFILE,
+    verifyUrl: 'https://platzi.com/p/normaniasich/curso/2793-computacion-basica/diploma/detalle/',
   },
 ]
