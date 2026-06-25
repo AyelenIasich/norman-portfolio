@@ -1,13 +1,22 @@
 # Certificados
 
-Dejá acá los archivos de tus certificados (imágenes o PDFs).
+Archivos (PNG/JPG/PDF) de los certificados que se muestran en la sección
+"Certificaciones".
 
-Luego enlazá cada archivo en `data/certifications.ts` usando el campo `document`:
+Cada certificado se configura en `data/certifications.ts`:
 
-    { type: 'image', src: '/certificates/mi-cert.png' }   // imagen -> modal
-    { type: 'pdf',   src: '/certificates/mi-cert.pdf' }    // pdf    -> modal + descarga
-    { type: 'link',  src: 'https://tryhackme.com/...' }     // link   -> verificar (pestaña nueva)
-    null                                                    // sin doc -> "Próximamente"
+    image:     '/certificates/mi-cert.png'   // captura -> se ve en el modal
+    verifyUrl: 'https://...'                  // página oficial de verificación
+    pdf:       '/certificates/mi-cert.pdf'    // PDF original (descarga, opcional)
 
-Las rutas son relativas a `public/`, así que un archivo en
-`public/certificates/foo.png` se referencia como `/certificates/foo.png`.
+Reglas de la tarjeta:
+- con `image`  -> botón "Ver certificado" (abre modal con la captura + verificar)
+- sin `image` pero con `verifyUrl` -> botón "Verificar" (link directo)
+- sin nada     -> estado "Próximamente"
+
+Las rutas son relativas a `public/`, así que `public/certificates/foo.png`
+se referencia como `/certificates/foo.png`.
+
+Para regenerar un PNG desde un PDF:
+
+    convert -density 150 cert.pdf[0] -quality 92 -background white -flatten cert.png

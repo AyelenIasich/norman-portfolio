@@ -3,11 +3,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import {
   BookOpen, Terminal, Code2, FileText,
-  Eye, ExternalLink, Download, Clock, X,
+  Eye, ExternalLink, Download, Clock, X, ShieldCheck,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
-import { certifications, type CertDocument } from '@/data/certifications'
+import { certifications, type Certification } from '@/data/certifications'
 
 const INST_ICON: Record<string, { Icon: LucideIcon; cls: string }> = {
   Teclab:    { Icon: BookOpen,  cls: 'text-red' },
@@ -20,7 +20,7 @@ const certById = Object.fromEntries(certifications.map((c) => [c.id, c]))
 
 interface Viewing {
   title: string
-  document: Extract<CertDocument, { type: 'image' | 'pdf' }>
+  cert: Certification
 }
 
 export default function Certifications() {
@@ -73,7 +73,8 @@ export default function Certifications() {
               const cert = certById[item.id]
               const institution = cert?.institution ?? ''
               const inProgress = cert?.status === 'inProgress'
-              const doc = cert?.document ?? null
+              const hasImage = !!cert?.image
+              const hasVerify = !!cert?.verifyUrl
               const { Icon, cls } = INST_ICON[institution] ?? DEFAULT_INST
 
               return (
@@ -113,9 +114,32 @@ export default function Certifications() {
                     <p className="text-muted text-xs mt-1">{item.period}</p>
                   </div>
 
-                  {/* Document action */}
+                  {/* Action */}
                   <div className="flex-shrink-0">
-                    {doc === null ? (
+                    {hasImage ? (
+                      <button
+                        type="button"
+                        onClick={() => setViewing({ title: item.title, cert })}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-red
+                                   px-3 py-1.5 rounded-lg border border-red/30
+                                   hover:bg-red/10 hover:border-red/60 transition-colors"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span className="hidden sm:inline">{t.certifications.view}</span>
+                      </button>
+                    ) : hasVerify ? (
+                      <a
+                        href={cert!.verifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold
+                                   px-3 py-1.5 rounded-lg border border-gold/30
+                                   hover:bg-gold/10 hover:border-gold/60 transition-colors"
+                      >
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span className="hidden sm:inline">{t.certifications.verify}</span>
+                      </a>
+                    ) : (
                       <span
                         className="inline-flex items-center gap-1.5 text-xs text-muted/70
                                    px-3 py-1.5 rounded-lg border border-wire/60 cursor-default select-none"
@@ -124,29 +148,6 @@ export default function Certifications() {
                         <Clock className="w-3.5 h-3.5" />
                         <span className="hidden sm:inline">{t.certifications.comingSoon}</span>
                       </span>
-                    ) : doc.type === 'link' ? (
-                      <a
-                        href={doc.src}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan
-                                   px-3 py-1.5 rounded-lg border border-cyan/30
-                                   hover:bg-cyan/10 hover:border-cyan/60 transition-colors"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        <span className="hidden sm:inline">{t.certifications.verify}</span>
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => setViewing({ title: item.title, document: doc })}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-red
-                                   px-3 py-1.5 rounded-lg border border-red/30
-                                   hover:bg-red/10 hover:border-red/60 transition-colors"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span className="hidden sm:inline">{t.certifications.view}</span>
-                      </button>
                     )}
                   </div>
                 </div>
@@ -156,7 +157,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* Lightbox modal for image / pdf documents */}
+      {/* Lightbox modal: certificate screenshot + verify / download actions */}
       {viewing && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8
@@ -175,16 +176,34 @@ export default function Certifications() {
             <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-wire">
               <p className="font-grotesk font-bold text-snow text-sm truncate">{viewing.title}</p>
               <div className="flex items-center gap-2 flex-shrink-0">
-                <a
-                  href={viewing.document.src}
-                  download
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted
-                             px-2.5 py-1.5 rounded-lg border border-wire
-                             hover:text-snow hover:border-red/50 transition-colors"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">{t.certifications.download}</span>
-                </a>
+                {viewing.cert.verifyUrl && (
+                  <a
+                    href={viewing.cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold
+                               px-2.5 py-1.5 rounded-lg border border-gold/40
+                               hover:bg-gold/10 hover:border-gold/70 transition-colors"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">
+                      {t.certifications.verify} · {viewing.cert.institution}
+                    </span>
+                    <ExternalLink className="w-3 h-3 opacity-70" />
+                  </a>
+                )}
+                {viewing.cert.pdf && (
+                  <a
+                    href={viewing.cert.pdf}
+                    download
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted
+                               px-2.5 py-1.5 rounded-lg border border-wire
+                               hover:text-snow hover:border-red/50 transition-colors"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">PDF</span>
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={close}
@@ -198,22 +217,14 @@ export default function Certifications() {
               </div>
             </div>
 
-            {/* Body */}
+            {/* Body: certificate screenshot */}
             <div className="flex-1 min-h-0 overflow-auto bg-dark/60 flex items-center justify-center">
-              {viewing.document.type === 'image' ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={viewing.document.src}
-                  alt={viewing.title}
-                  className="max-w-full max-h-[78vh] object-contain"
-                />
-              ) : (
-                <iframe
-                  src={viewing.document.src}
-                  title={viewing.title}
-                  className="w-full h-[78vh]"
-                />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={viewing.cert.image}
+                alt={viewing.title}
+                className="max-w-full max-h-[78vh] object-contain"
+              />
             </div>
           </div>
         </div>

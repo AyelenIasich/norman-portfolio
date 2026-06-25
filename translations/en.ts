@@ -167,7 +167,7 @@ export const en = {
       {
         id: 'thm-presecurity',
         title: 'Pre-Security Path',
-        period: '2026',
+        period: 'May 2026',
       },
       {
         id: 'thm-jr-pentester',
@@ -176,13 +176,23 @@ export const en = {
       },
       {
         id: 'platzi-intro-ciber',
-        title: 'Introduction to Cybersecurity',
-        period: '2026',
+        title: 'Preventive Cybersecurity',
+        period: 'April 2026',
       },
       {
         id: 'platzi-redes',
-        title: 'Networking Course',
-        period: '2026',
+        title: 'Computer Networks & the Internet',
+        period: 'April 2026',
+      },
+      {
+        id: 'platzi-terminal',
+        title: 'Introduction to the Terminal & Command Line',
+        period: 'March 2026',
+      },
+      {
+        id: 'platzi-computacion',
+        title: 'Basic Computing',
+        period: 'February 2026',
       },
     ],
   },

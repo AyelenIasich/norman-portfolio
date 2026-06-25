@@ -169,7 +169,7 @@ export const es: Translations = {
       {
         id: 'thm-presecurity',
         title: 'Pre-Security Path',
-        period: '2026',
+        period: 'Mayo 2026',
       },
       {
         id: 'thm-jr-pentester',
@@ -178,13 +178,23 @@ export const es: Translations = {
       },
       {
         id: 'platzi-intro-ciber',
-        title: 'Introducción a la Ciberseguridad',
-        period: '2026',
+        title: 'Ciberseguridad Preventiva',
+        period: 'Abril 2026',
       },
       {
         id: 'platzi-redes',
-        title: 'Curso de Redes',
-        period: '2026',
+        title: 'Redes Informáticas de Internet',
+        period: 'Abril 2026',
+      },
+      {
+        id: 'platzi-terminal',
+        title: 'Introducción a la Terminal y Línea de Comandos',
+        period: 'Marzo 2026',
+      },
+      {
+        id: 'platzi-computacion',
+        title: 'Computación Básica',
+        period: 'Febrero 2026',
       },
     ],
   },
