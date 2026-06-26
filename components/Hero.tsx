@@ -93,8 +93,7 @@ export default function Hero() {
             fontSize: 13, color: 'var(--c-muted)', lineHeight: 1.8,
             maxWidth: 440, marginBottom: 48, fontWeight: 300
           }}>
-            {t.hero.tagline}.<br />
-            {t.hero.subtitle}
+            {t.hero.tagline}.
           </p>
 
           {/* CTAs */}

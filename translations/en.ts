@@ -29,7 +29,7 @@ export const en = {
       platformsList: 'TryHackMe · CyLab · HackTheBox',
       status: 'Status',
       available: 'Available for opportunities',
-      tags: ['Pentesting', 'Red Team', 'Networking', 'Kali Linux', 'CTF'],
+      tags: ['Pentesting', 'Red Team'],
       bars: [
         { name: 'Linux',       pct: 88 },
         { name: 'Networking',  pct: 75 },

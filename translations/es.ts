@@ -31,7 +31,7 @@ export const es: Translations = {
       platformsList: 'TryHackMe · CyLab · HackTheBox',
       status: 'Estado',
       available: 'Disponible para oportunidades',
-      tags: ['Pentesting', 'Red Team', 'Networking', 'Kali Linux', 'CTF'],
+      tags: ['Pentesting', 'Red Team'],
       bars: [
         { name: 'Linux',       pct: 88 },
         { name: 'Redes',       pct: 75 },
