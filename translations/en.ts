@@ -15,7 +15,7 @@ export const en = {
       'Cybersecurity Student',
       'Ethical Hacker in Training',
       'CTF Player',
-      'Penetration Tester',
+      'Penetration Tester in Training',
     ],
     cta1: 'View My Work',
     cta2: 'Contact Me',

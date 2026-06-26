@@ -17,7 +17,7 @@ export const es: Translations = {
       'Estudiante de Ciberseguridad',
       'Ethical Hacker en Formación',
       'Jugador de CTF',
-      'Pentester',
+      'Pentester en Formación',
     ],
     cta1: 'Ver Proyectos',
     cta2: 'Contactarme',
