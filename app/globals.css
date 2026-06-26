@@ -17,7 +17,8 @@
 
 * { box-sizing: border-box; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+/* scroll-padding-top compensa la navbar fija (h-16 = 64px) al saltar a secciones */
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 5rem; }
 
 body {
   background-color: var(--c-dark);

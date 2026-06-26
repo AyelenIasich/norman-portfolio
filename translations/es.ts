@@ -43,11 +43,11 @@ export const es: Translations = {
   about: {
     title: 'Sobre Mí',
     subtitle: '¿Quién está detrás de la terminal?',
-    p1: 'Soy Norman Iasich, estudiante de Ciberseguridad en Teclab (Argentina), cursando la Tecnicatura en Ciberseguridad. Mi pasión por la seguridad digital comenzó por pura curiosidad — cómo funcionan los sistemas, cómo se rompen y cómo protegerlos.',
-    p2: 'Más allá de la formación académica, expando continuamente mis habilidades en Platzi y TryHackMe, resolviendo desafíos CTF, rutas de aprendizaje y laboratorios prácticos enfocados en pentesting y ethical hacking.',
+    p1: 'Soy Norman Iasich, estudiante de la Tecnicatura Superior en Ciberseguridad en Teclab (Argentina), donde adquiero los fundamentos técnicos del campo.',
+    p2: 'Mi interés por la seguridad nació de querer entender cómo funcionan los sistemas en profundidad — y, desde ahí, cómo se protegen y cómo se rompen. Sobre esa base académica, construyo de forma independiente una orientación hacia Red Team y Cloud Pentesting a través de práctica activa en TryHackMe, PicoCTF y Hack The Box, donde resuelvo CTFs y laboratorios tanto del lado ofensivo como defensivo.',
+    p3: 'Además monto laboratorios propios para replicar entornos reales donde puedo experimentar sin restricciones — servidores, servicios de red e infraestructura en general. Documento cada aprendizaje con writeups técnicos estructurados, con el objetivo de desarrollar expertise real más allá del título.',
     stats: [
-      { value: '5+', label: 'Máquinas CTF Resueltas' },
-      { value: '3', label: 'Plataformas de Aprendizaje' },
+      { value: '∞', label: 'Plataformas de Aprendizaje' },
       { value: '1', label: 'Carrera en Curso' },
     ],
   },

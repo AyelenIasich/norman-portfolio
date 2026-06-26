@@ -97,12 +97,15 @@ export default function About() {
               <p className="text-muted leading-relaxed mb-4 text-sm sm:text-base">
                 {t.about.p1}
               </p>
-              <p className="text-muted leading-relaxed mb-8 text-sm sm:text-base">
+              <p className="text-muted leading-relaxed mb-4 text-sm sm:text-base">
                 {t.about.p2}
+              </p>
+              <p className="text-muted leading-relaxed mb-8 text-sm sm:text-base">
+                {t.about.p3}
               </p>
 
               {/* Stat cards */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {t.about.stats.map((stat, i) => {
                   const Icon = STAT_ICONS[i]
                   return (
