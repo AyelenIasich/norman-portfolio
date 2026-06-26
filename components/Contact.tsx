@@ -29,7 +29,7 @@ function ContactCard({ icon: Icon, label, href, desc }: SocialCard) {
         <p className="font-grotesk font-semibold text-snow text-sm group-hover:text-red transition-colors">
           {label}
         </p>
-        <p className="text-muted text-xs mt-0.5">{desc}</p>
+        <p className="text-muted text-xs mt-0.5 break-words leading-relaxed">{desc}</p>
       </div>
     </a>
   )
@@ -61,8 +61,8 @@ export default function Contact() {
     {
       icon: Github,
       label: t.contact.social.github,
-      href: 'https://github.com/normania',
-      desc: 'normania',
+      href: 'https://github.com/normaniasich',
+      desc: 'normaniasich',
     },
     {
       icon: Crosshair,
@@ -89,10 +89,7 @@ export default function Contact() {
           <h2 className="font-grotesk text-3xl sm:text-4xl font-bold text-snow text-center mb-1">
             {t.contact.title}
           </h2>
-          <p className="text-muted text-center mb-3">{t.contact.subtitle}</p>
-          <p className="text-muted text-center text-sm mb-14 max-w-md mx-auto">
-            {t.contact.description}
-          </p>
+          <p className="text-muted text-center mb-14">{t.contact.subtitle}</p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {socials.map((s) => (
