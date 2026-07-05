@@ -38,6 +38,14 @@ export const certifications: Certification[] = [
     status: 'inProgress',
   },
   {
+    id: 'platzi-ingenieria',
+    institution: 'Platzi',
+    status: 'completed',
+    image: '/certificates/platzi-ingenieria-software.png',
+    verifyUrl: 'https://platzi.com/p/normaniasich/curso/11997-course/diploma/detalle/',
+    pdf: '/certificates/platzi-ingenieria-software.pdf',
+  },
+  {
     id: 'platzi-intro-ciber',
     institution: 'Platzi',
     status: 'completed',

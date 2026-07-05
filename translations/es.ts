@@ -177,6 +177,11 @@ export const es: Translations = {
         period: '2026 – Presente',
       },
       {
+        id: 'platzi-ingenieria',
+        title: 'Fundamentos de Ingeniería de Software',
+        period: 'Julio 2026',
+      },
+      {
         id: 'platzi-intro-ciber',
         title: 'Ciberseguridad Preventiva',
         period: 'Abril 2026',

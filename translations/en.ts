@@ -175,6 +175,11 @@ export const en = {
         period: '2026 – Present',
       },
       {
+        id: 'platzi-ingenieria',
+        title: 'Software Engineering Fundamentals',
+        period: 'July 2026',
+      },
+      {
         id: 'platzi-intro-ciber',
         title: 'Preventive Cybersecurity',
         period: 'April 2026',
